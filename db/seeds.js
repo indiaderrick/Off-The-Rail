@@ -42,6 +42,7 @@ mongoose.connect(dbURI, (err, db) => {
 
   Item.create([{
     name: 'Zita Faux Fur Jacket',
+    addedBy: userIds[1],
     image: 'https://cdn.shopify.com/s/files/1/2238/4623/products/IGGY-JACKET-FUR-1_1024x.jpg?v=1539258144',
     originallyFrom: 'DE LA VALI',
     smallImages: ['https://cdn.shopify.com/s/files/1/2238/4623/products/8974_1024x.jpg?v=1539258144', 'https://cdn.shopify.com/s/files/1/2238/4623/products/IGGY-JACKET-FUR-2_1024x.jpg?v=1539258144'],
@@ -53,6 +54,7 @@ mongoose.connect(dbURI, (err, db) => {
     newPrice: 120
   },
   {name: 'Leo Band Ring',
+    addedBy: userIds[1],
     image: 'https://elizabeth-gage.com/wp-content/uploads/2017/05/Zodiac-templar-band-with-four-leo-motifs-ZBG26427.jpg',
     originallyFrom: 'Elizabeth Gage',
     color: ['gold'],
@@ -63,6 +65,7 @@ mongoose.connect(dbURI, (err, db) => {
     newPrice: 800
   },
   {name: 'Bug embroidery knuckle duster clutch',
+    addedBy: userIds[0],
     image: 'http://images.selfridges.com/is/image//selfridges/446-2000084-5306460OXXT1055_BLACKWHITE_ALT10?$PDP_M_ZOOM$&defaultImage=446-2000084-5306460OXXT1055_BLACKWHITE_M',
     originallyFrom: 'Alexander McQueen',
     smallImages: ['http://images.selfridges.com/is/image//selfridges/446-2000084-5306460OXXT1055_BLACKWHITE_ALT01?$PDP_M_ALL$', 'http://images.selfridges.com/is/image//selfridges/446-2000084-5306460OXXT1055_BLACKWHITE_ALT03?$PDP_M_ALL$'],
@@ -74,6 +77,7 @@ mongoose.connect(dbURI, (err, db) => {
     newPrice: 1200
   },
   {name: 'Iris Velvet Wrap Dress',
+    addedBy: userIds[0],
     image: 'https://images.harrods.com/product/rixo/iris-velvet-wrap-dress_000000006062133002.jpg',
     originallyFrom: 'Rixo',
     smallImages: ['https://images.harrods.com/product/rixo/iris-velvet-wrap-dress_000000006062133002_1.jpg?dwn=500px:568px', 'https://images.harrods.com/product/rixo/iris-velvet-wrap-dress_000000006062133002_f.jpg?dwn=500px:568px'],

@@ -16,15 +16,21 @@ const userSchema = mongoose.Schema({
   followers: [ { type: mongoose.Schema.ObjectId, ref: 'User' }]
 });
 
+userSchema.virtual('addedItems', {
+  ref: 'Item',
+  localField: '_id',
+  foreignField: 'addedBy'
+});
+
 // userSchema.virtual('following', {
 //   ref: 'User',
 //   localField: '_id',
 //   foreignField: 'followers'
 // });
-//
-// userSchema.set('toJSON', {
-//   virtuals: true
-// });
+
+userSchema.set('toJSON', {
+  virtuals: true
+});
 
 const userModel = mongoose.model('User', userSchema);
 
