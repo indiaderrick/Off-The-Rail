@@ -12,7 +12,7 @@ class ItemShow extends React.Component{
     axios.get(`/api/items/${this.props.match.params.id}`)
       .then(result => {
         this.setState({ item: result.data });
-        console.log('We have', this.state.item);
+        console.log('this is this.state,item', this.state.item);
       });
   }
 
