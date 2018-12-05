@@ -1,7 +1,41 @@
 const mongoose = require('mongoose');
 const Item = require('../models/item');
+const User = require('../models/user');
 mongoose.Promise = require('bluebird');
 const { dbURI } = require('../config/environment');
+
+const userIds = [
+  '5be9bd11c7f4b190431791a3',
+  '5be9bd11c7f4b190431791a4'
+];
+
+const userData = [{
+  username: 'indiaderrick',
+  _id: userIds[0],
+  name: 'India',
+  email: 'i@i',
+  bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  city: 'London',
+  location: {
+    lat: 51.51051,
+    lng: -0.14986
+  },
+  password: 'pass',
+  passwordConfirmation: 'pass'
+}, {
+  username: 'lilymarriott',
+  _id: userIds[1],
+  name: 'Lily',
+  email: 'l@l',
+  bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  city: 'London',
+  location: {
+    lat: 51.51040,
+    lng: -0.14989
+  },
+  password: 'pass',
+  passwordConfirmation: 'pass'
+}];
 
 mongoose.connect(dbURI, (err, db) => {
   db.dropDatabase();
@@ -14,7 +48,7 @@ mongoose.connect(dbURI, (err, db) => {
     color: ['black'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     type: ['jacket', 'coat'],
-    // owner: {},
+    // addedBy: {},
     retailPrice: 495,
     newPrice: 120
   },
@@ -24,7 +58,7 @@ mongoose.connect(dbURI, (err, db) => {
     color: ['gold'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     type: ['jewellery', 'statement'],
-    // owner: {},
+    // addedBy: {},
     retailPrice: 4560,
     newPrice: 800
   },
@@ -35,7 +69,7 @@ mongoose.connect(dbURI, (err, db) => {
     color: ['black', 'white', 'gold'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     type: ['bag', 'statement'],
-    // owner: {},
+    // addedBy: {},
     retailPrice: 2990,
     newPrice: 1200
   },
@@ -46,13 +80,18 @@ mongoose.connect(dbURI, (err, db) => {
     color: 'blue',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     type: ['dress', 'smart'],
-    // owner: {},
+    // addedBy: {},
     retailPrice: 495,
     newPrice: 125
   }
   ])
 
-    .then(item => console.log(`${item.length} items created`))
+    .then(item => console.log(`${item.length} items created`));
+  User
+    .create(userData)
+    .then(users => {
+      console.log(`${users.length} users created`);
+    })
     .catch(err => console.log(err))
     .finally(() => mongoose.connection.close());
 

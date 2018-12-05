@@ -8,7 +8,7 @@ const itemSchema = new mongoose.Schema({
   originallyFrom: String,
   description: String,
   type: [String],
-  owner: {
+  addedBy: {
     type: mongoose.Schema.ObjectId,
     ref: 'User' },
 
