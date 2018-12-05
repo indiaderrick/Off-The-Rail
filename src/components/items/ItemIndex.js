@@ -20,7 +20,11 @@ class WonderIndex extends React.Component{
     return(
       <section className="columns is-multiline">
         <div className="eachItem">
-          {this.state.items && this.state.items.map(item => <Link to={`/items/${item._id}`} key={item._id}><img src={item.image} /> </Link>)}
+          {this.state.items && this.state.items.map(item =>
+            <div className="column is-4-desktop" key={item._id}>
+            <Link to={`/items/${item._id}`} ><img src={item.image} /> </Link>
+            </div>
+          )}
         </div>
       </section>
     );

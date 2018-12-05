@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Header from './components/Header';
 import ItemIndex from './components/items/ItemIndex';
 import ItemShow from './components/items/ItemShow';
+import ItemNew from './components/items/New';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
@@ -18,6 +19,7 @@ class App extends React.Component {
           <main>
             <Switch>
               <Route exact path='/items' component={ItemIndex}/>
+              <Route path='/items/new' component={ItemNew}/>
               <Route path='/items/:id' component={ItemShow}/>
             </Switch>
           </main>
