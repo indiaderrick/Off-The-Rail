@@ -19,6 +19,7 @@ function showRoute(req, res, next){
 
 function createRoute(req, res, next){
   console.log('this is what we sent the server:', req.body);
+  req.body.addedBy = req.currentUser._id
   Item
     .create(req.body)
     .then(item => res.status(201).json(item))

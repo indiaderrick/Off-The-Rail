@@ -7,7 +7,7 @@ const secureRoute = require('../lib/secureRoute');
 
 router.route('/items')
   .get(itemController.indexRoute)
-  .post(itemController.createRoute);
+  .post(secureRoute, itemController.createRoute);
 
 router.route('/items/:id')
   .get(itemController.showRoute)
