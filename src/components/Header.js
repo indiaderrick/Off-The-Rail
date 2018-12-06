@@ -22,7 +22,7 @@ class Header extends React.Component {
           {isAuthenticated() && <h2 className="title is-2">Welcome back {decodeToken().name}</h2>}
         </div>
         <div className="navbar-end">
-          <Link className="navbar-item" to={'/items'}>Items</Link>
+          <Link className="navbar-item" to={'/items'}>Explore</Link>
           {isAuthenticated() && <Link className="navbar-item" to={`/users/${tokenUserId()}`}> Profile </Link>}
           {isAuthenticated() && <Link className="navbar-item" to={'/basket'}> Basket </Link>}
           {isAuthenticated() && <Link className="navbar-item" to={'/items/new'}>Add an item</Link>}

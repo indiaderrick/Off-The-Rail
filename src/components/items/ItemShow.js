@@ -39,7 +39,7 @@ class ItemShow extends React.Component{
   render(){
     const item = this.state.item;
     console.log('this is item', this.state.item)
-    const basket = this.state.basket;
+    // const basket = this.state.basket;
     return(
       <section className="container">
         {item

@@ -24,7 +24,7 @@ class Basket extends React.Component{
     const hasItems = basket && !!basket.length;
 
     return(
-      <main>
+      <main className="container">
         <h1>Your Basket :</h1>
         {basket && hasItems ? basket.map(item =>
           <div key={item._id} className="columns">

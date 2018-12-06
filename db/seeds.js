@@ -3,10 +3,32 @@ const Item = require('../models/item');
 const User = require('../models/user');
 mongoose.Promise = require('bluebird');
 const { dbURI } = require('../config/environment');
+const Message = require('../models/message');
+
 
 const userIds = [
   '5be9bd11c7f4b190431791a3',
   '5be9bd11c7f4b190431791a4'
+];
+
+const messageData = [
+  {
+    from: userIds[0],
+    to: userIds[1],
+    content: 'Hello Ellie!'
+  }, {
+    from: userIds[1],
+    to: userIds[0],
+    content: 'Hi Rob!'
+  }, {
+    from: userIds[0],
+    to: userIds[1],
+    content: 'Hi Matt!'
+  }, {
+    from: userIds[1],
+    to: userIds[0],
+    content: 'Hi Rob! How\'s life?'
+  }
 ];
 
 const userData = [{
@@ -95,8 +117,11 @@ mongoose.connect(dbURI, (err, db) => {
     .create(userData)
     .then(users => {
       console.log(`${users.length} users created`);
+      return Message.create(messageData);
     })
-    .catch(err => console.log(err))
-    .finally(() => mongoose.connection.close());
-
+    .then(messages => {
+      console.log(`${messages.length} messages created`);
+      mongoose.connection.close()
+        .catch(err => console.log(err));
+    });
 });
