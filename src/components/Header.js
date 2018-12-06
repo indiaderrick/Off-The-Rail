@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import {isAuthenticated, deleteToken, decodeToken } from '../lib/auth';
+import {isAuthenticated, deleteToken, decodeToken, tokenUserId } from '../lib/auth';
 
 class Header extends React.Component {
   constructor(props){
@@ -21,7 +21,7 @@ class Header extends React.Component {
         </div>
         <div className="navbar-end">
           <Link className="navbar-item" to={'/items'}>Items</Link>
-          {isAuthenticated() && <Link className="navbar-item" to={'/users/:id'}> Profile </Link>}
+          {isAuthenticated() && <Link className="navbar-item" to={`/users/${tokenUserId()}`}> Profile </Link>}
           {isAuthenticated() && <Link className="navbar-item" to={'/items/new'}>Add an item</Link>}
           {!isAuthenticated() && <Link className="navbar-item" to={'/login'}>Log In</Link>}
           {!isAuthenticated() && <Link className="navbar-item" to={'/register'}>Register</Link>}

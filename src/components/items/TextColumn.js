@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function TextColumn({ item, handleDelete }) {
   console.log('this is addedBy', item.addedBy);
@@ -6,7 +7,7 @@ function TextColumn({ item, handleDelete }) {
     <article>
       <div>
         <h3 >{item.name}</h3>
-        <p> ADDED BY: {item.addedBy.name}</p>
+        <Link to={`/users/${item.addedBy._id}`}> <p> ADDED BY: {item.addedBy.name}</p></Link>
         <p> <i className="fas fa-map-marker-alt"></i> {item.addedBy.city}</p>
 
         <p> {item.description}</p>

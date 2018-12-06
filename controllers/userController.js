@@ -1,9 +1,10 @@
 const User = require('../models/user');
 
 function profileShow(req, res, next) {
+  console.log('this is req.params', req.params)
   User
     .findById(req.params.userId)
-    .populate('addedPosts')
+    .populate('addedItems')
     .then(user => {
       res.json(user);
     })

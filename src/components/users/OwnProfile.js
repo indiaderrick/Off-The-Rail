@@ -6,27 +6,54 @@ class OwnProfile extends React.Component{
   constructor(props){
     super(props);
     this.state={};
-    console.log(decodeToken());
-    console.log(tokenUserId());
+    console.log('this is decodeToken', decodeToken());
+    console.log('this is token user Id', tokenUserId());
+    console.log('this is this.props.match.params._id', this.props.match.params.id);
   }
 
   componentDidMount(){
-    axios.get(`/api/users/${decodeToken().sub}`)
-      .then(result => {
-        this.setState({ user: result.data });
-        console.log('this is this.state.user', this.state.user);
-      });
+    if(tokenUserId() === this.props.match.params.id){
+      axios.get(`/api/users/${decodeToken().sub}`)
+        .then(result => {
+          this.setState({ user: result.data });
+        });
+    } else {
+      axios.get(`/api/users/${this.props.match.params.id}`)
+        .then(result => {
+          this.setState({ user: result.data });
+        });
+    }
   }
 
   render(){
-    // user = this.state.user;
+    const user = this.state.user;
     return(
       <div>
-        <h1> {this.state.user && this.state.user.name} </h1>
-        <p> {this.state.user && this.state.user.bio} </p>
+        <h1> {user && user.name} </h1>
+        <hr />
+        <p> {user && user.bio} </p>
+        <hr />
+        <h2> Added Items: </h2>
+        <ul>
+          { user && user.addedItems.map((item, i) =>
+            <div key={i}>
+              <li> Bought for £{item.retailPrice}, Now £{item.newPrice}. You save £{item.retailPrice - item.newPrice }! </li>
+              <li> {item.name} </li>
+            </div>
+          )}
+        </ul>
       </div>
     );
   }
 }
 
 export default OwnProfile;
+
+
+
+
+
+
+
+
+// const addedItems = user.addedItems;

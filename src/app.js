@@ -25,7 +25,7 @@ class App extends React.Component {
               <Route exact path='/login' component={Login}/>
               <Route exact path='/register' component={Register}/>
               <Route path='/items/new' component={ItemNew}/>
-              <Route exact path='/users/:id' component={OwnProfile}/>
+              <Route path='/users/:id' component={OwnProfile}/>
               <Route path='/items/:id' component={ItemShow}/>
             </Switch>
           </main>

@@ -22,11 +22,6 @@ userSchema.virtual('addedItems', {
   foreignField: 'addedBy'
 });
 
-// userSchema.virtual('following', {
-//   ref: 'User',
-//   localField: '_id',
-//   foreignField: 'followers'
-// });
 
 userSchema.set('toJSON', {
   virtuals: true
@@ -35,3 +30,10 @@ userSchema.set('toJSON', {
 const userModel = mongoose.model('User', userSchema);
 
 module.exports = userModel;
+
+
+// userSchema.virtual('following', {
+  //   ref: 'User',
+  //   localField: '_id',
+  //   foreignField: 'followers'
+  // });
