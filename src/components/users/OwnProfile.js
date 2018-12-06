@@ -25,6 +25,15 @@ class OwnProfile extends React.Component{
     }
   }
 
+  componentDidUpdate(){
+    if(tokenUserId() === this.props.match.params.id){
+      axios.get(`/api/users/${decodeToken().sub}`)
+        .then(result => {
+          this.setState({ user: result.data });
+        });
+    }
+  }
+
   render(){
     const user = this.state.user;
     return(
