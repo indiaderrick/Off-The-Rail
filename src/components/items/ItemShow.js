@@ -1,11 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import TextColumn from './TextColumn';
+import { authorizationHeader } from '../../lib/auth';
 
 class ItemShow extends React.Component{
   constructor(props){
     super(props);
     this.state={};
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount(){
@@ -13,6 +15,13 @@ class ItemShow extends React.Component{
       .then(result => {
         this.setState({ item: result.data });
         console.log('this is this.state,item', this.state.item);
+      });
+  }
+
+  handleDelete(){
+    axios.delete(`/api/items/${this.state.item._id}`, authorizationHeader())
+      .then(() => {
+        this.props.history.push('/items');
       });
   }
 
@@ -27,7 +36,7 @@ class ItemShow extends React.Component{
               <img src={item.image} />
             </div>
             <div className="column is-6-desktop">
-              <TextColumn item={item}/>
+              <TextColumn item={item} handleDelete={this.handleDelete}/>
             </div>
           </div>
           :

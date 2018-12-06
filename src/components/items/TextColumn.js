@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TextColumn({ item }) {
+function TextColumn({ item, handleDelete }) {
   console.log('this is addedBy', item.addedBy);
   return (
     <article>
@@ -8,8 +8,9 @@ function TextColumn({ item }) {
         <h3 >{item.name}</h3>
         <p> ADDED BY: {item.addedBy.name}</p>
         <p> <i className="fas fa-map-marker-alt"></i> {item.addedBy.city}</p>
+
         <p> {item.description}</p>
-        <button> Message User </button>
+        <button onClick={handleDelete}> Delete </button>
         <button> BUY </button>
         <hr></hr>
       </div>

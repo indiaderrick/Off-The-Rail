@@ -8,6 +8,7 @@ function registerRoute(req, res, next){
     .then(user => {
       const token = jwt.sign({ username: user.username, sub: user._id, name: user.name},
         secret, { expiresIn: '6h' });
+      console.log('you sent this....', user);
       res.json({
         message: `Welcome to the site ${user.name}!`,
         token,
