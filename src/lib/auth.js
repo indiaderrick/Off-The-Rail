@@ -21,6 +21,10 @@ export function tokenUserId() {
   return decodeToken().sub;
 }
 
+export function tokenUserName() {
+  return decodeToken().name;
+}
+
 export function deleteToken() {
   localStorage.removeItem('item-token');
 }

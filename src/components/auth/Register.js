@@ -7,10 +7,12 @@ class Register extends React.Component {
   constructor(props){
     super(props);
     this.state={};
+    this.handleChange = handleChange.bind(this);
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
+    console.log('this is thhis.state', this.state);
     axios.post('/api/register', this.state)
       .then(res => {
         saveToken(res.data.token);
@@ -30,7 +32,7 @@ class Register extends React.Component {
             className="input"
             name="name"
             placeholder="Name"
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
         </div>
         <div className="field">
@@ -38,7 +40,7 @@ class Register extends React.Component {
             className="input"
             name="profilePicture"
             placeholder="Profile Picture"
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
         </div>
         <div className="field">
@@ -46,7 +48,7 @@ class Register extends React.Component {
             className="input"
             name="username"
             placeholder="Username"
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
         </div>
         <div className="field">
@@ -54,7 +56,7 @@ class Register extends React.Component {
             className="input"
             name="email"
             placeholder="Email"
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
         </div>
         <div className="field">
@@ -62,7 +64,7 @@ class Register extends React.Component {
             className="input"
             name="bio"
             placeholder="Bio"
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
         </div>
         <div className="field">
@@ -70,7 +72,7 @@ class Register extends React.Component {
             className="input"
             name="location.lat"
             placeholder="Your Latitude"
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
         </div>
         <div className="field">
@@ -78,7 +80,7 @@ class Register extends React.Component {
             className="input"
             name="location.lng"
             placeholder="Your Longitude"
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
         </div>
         <div className="field">
@@ -87,7 +89,7 @@ class Register extends React.Component {
             className="input"
             name="password"
             placeholder="Password"
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
         </div>
         <div className="field">
@@ -96,7 +98,7 @@ class Register extends React.Component {
             className="input"
             name="city"
             placeholder="City"
-            onChange={handleChange}
+            onChange={this.handleChange}
           />
         </div>
         <button className="button is-primary">Submit</button>

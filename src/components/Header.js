@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import {isAuthenticated, deleteToken, decodeToken, tokenUserId } from '../lib/auth';
+import basketLib from '../lib/basket';
 
 class Header extends React.Component {
   constructor(props){
@@ -11,17 +12,19 @@ class Header extends React.Component {
   handleLogout(){
     deleteToken();
     this.props.history.push('/');
+    basketLib.removeBasket();
   }
 
   render(){
     return (
       <nav className="navbar is-primary">
         <div className="navbar-brand">
-          {isAuthenticated() && <h2 className="title is-2">Welcome back {decodeToken().username}</h2>}
+          {isAuthenticated() && <h2 className="title is-2">Welcome back {decodeToken().name}</h2>}
         </div>
         <div className="navbar-end">
           <Link className="navbar-item" to={'/items'}>Items</Link>
           {isAuthenticated() && <Link className="navbar-item" to={`/users/${tokenUserId()}`}> Profile </Link>}
+          {isAuthenticated() && <Link className="navbar-item" to={'/basket'}> Basket </Link>}
           {isAuthenticated() && <Link className="navbar-item" to={'/items/new'}>Add an item</Link>}
           {!isAuthenticated() && <Link className="navbar-item" to={'/login'}>Log In</Link>}
           {!isAuthenticated() && <Link className="navbar-item" to={'/register'}>Register</Link>}

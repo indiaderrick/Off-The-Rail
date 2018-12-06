@@ -55,14 +55,4 @@ class OwnProfile extends React.Component{
     );
   }
 }
-
 export default OwnProfile;
-
-
-
-
-
-
-
-
-// const addedItems = user.addedItems;

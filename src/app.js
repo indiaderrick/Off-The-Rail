@@ -7,6 +7,7 @@ import ItemNew from './components/items/New';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import OwnProfile from './components/users/OwnProfile';
+import Basket from './components/Basket';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
@@ -24,6 +25,7 @@ class App extends React.Component {
               <Route exact path='/items' component={ItemIndex}/>
               <Route exact path='/login' component={Login}/>
               <Route exact path='/register' component={Register}/>
+              <Route exact path='/basket' component={Basket}/>
               <Route path='/items/new' component={ItemNew}/>
               <Route path='/users/:id' component={OwnProfile}/>
               <Route path='/items/:id' component={ItemShow}/>

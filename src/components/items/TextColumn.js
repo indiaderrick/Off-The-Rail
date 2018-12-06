@@ -12,7 +12,6 @@ function TextColumn({ item, handleDelete }) {
 
         <p> {item.description}</p>
         <button onClick={handleDelete}> Delete </button>
-        <button> BUY </button>
         <hr></hr>
       </div>
 
