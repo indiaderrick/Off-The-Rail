@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import { authorizationHeader } from '../../lib/auth';
 import ItemForm from './ItemForm';
 
 class ItemNew extends React.Component {
@@ -18,7 +18,7 @@ class ItemNew extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log('Submit handled', this.state);
-    axios.post('/api/items', this.state)
+    axios.post('/api/items', this.state, authorizationHeader())
       .then(() => this.props.history.push('/items'));
   }
 

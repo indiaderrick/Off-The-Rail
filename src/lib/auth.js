@@ -1,9 +1,9 @@
 export function saveToken(token) {
-  localStorage.setItem('album-token', token);
+  localStorage.setItem('item-token', token);
 }
 
 export function getToken() {
-  return localStorage.getItem('album-token');
+  return localStorage.getItem('item-token');
 }
 
 export function decodeToken() {
@@ -22,7 +22,7 @@ export function tokenUserId() {
 }
 
 export function deleteToken() {
-  localStorage.removeItem('album-token');
+  localStorage.removeItem('item-token');
 }
 
 export function isAuthenticated() {

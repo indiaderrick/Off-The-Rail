@@ -6,7 +6,8 @@ function TextColumn({ item }) {
     <article>
       <div>
         <h3 >{item.name}</h3>
-
+        <p> ADDED BY: {item.addedBy.name}</p>
+        <p> <i className="fas fa-map-marker-alt"></i> {item.addedBy.city}</p>
         <p> {item.description}</p>
         <button> Message User </button>
         <button> BUY </button>
@@ -20,5 +21,3 @@ function TextColumn({ item }) {
 export default TextColumn;
 
 //added by!!
-// <p> ADDED BY: {item.addedBy.name}</p>
-// <p> <i className="fas fa-map-marker-alt"></i> {item.addedBy.city}</p>
