@@ -9,8 +9,14 @@ const purchaseSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'User'
   },
-  price: Number
-});
+  price: Number,
+  quantity: Number
+}, { timestamps: true });
+
+purchaseSchema.virtual('totalPrice')
+  .get(function() {
+    return this.price * this.quantity;
+  });
 
 module.exports = mongoose.model('Purchase', purchaseSchema);
 
