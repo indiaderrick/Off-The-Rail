@@ -4,7 +4,9 @@ import TextColumn from './TextColumn';
 import { authorizationHeader } from '../../lib/auth';
 import { addItem } from '../../lib/basket';
 import { handleChange } from '../../lib/common';
+// import { messageUserOfItem } from '../../lib/messages';
 import basketLib from '../../lib/basket';
+import { Link } from 'react-router-dom';
 
 class ItemShow extends React.Component{
   constructor(props){
@@ -13,6 +15,7 @@ class ItemShow extends React.Component{
     this.handleDelete = this.handleDelete.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = handleChange.bind(this);
+    // this.messageUserOfItem = this.messageUserOfItem.bind(this);
   }
 
   componentDidMount(){
@@ -30,6 +33,10 @@ class ItemShow extends React.Component{
       });
   }
 
+  // messageUserOfItem(){
+  //   console.log('message this user', this.state.item.addedBy.username);
+  // }
+
   handleClick() {
     console.log('this is this.state', this.state);
     addItem(this.state.item, parseInt(this.state.quantity));
@@ -38,8 +45,7 @@ class ItemShow extends React.Component{
 
   render(){
     const item = this.state.item;
-    console.log('this is item', this.state.item)
-    // const basket = this.state.basket;
+
     return(
       <section className="container">
         {item
@@ -53,6 +59,9 @@ class ItemShow extends React.Component{
             </div>
             <div className="column is-4">
               <button className="button" onClick={this.handleClick}>Add to basket</button>
+            </div>
+            <div className="column is-4">
+              <Link to={`/messages/${item.addedBy._id}`}><button className="button" >Message User</button></Link>
             </div>
           </div>
           :

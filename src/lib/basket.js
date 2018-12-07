@@ -25,17 +25,12 @@ export function getItem(basket, itemId) {
 
 export function addItem(itemToAdd) {
   const basket = getBasket();
-  itemToAdd.item = itemToAdd._id; // Useful for the backend Purchase model
+  itemToAdd.item = itemToAdd._id;
   if (!getItem(basket, itemToAdd._id))
     basket.push(itemToAdd);
-  // incrementQuantity(basket, itemToAdd._id, quantity);
   writeBasket(basket);
 }
 
-// export function incrementQuantity(basket, itemId, quantity) {
-//   const item = getItem(basket, itemId);
-//   item.quantity = (item.quantity || 0) + quantity;
-// }
 
 export function updateQuantity(itemId, updatedQuantity) {
   const basket = getBasket();
@@ -60,9 +55,11 @@ export function checkout() {
   axios.post('/api/checkout', getBasket(), authorizationHeader())
     .then(() => {
       createBasket();
+      console.log('checking out!!');
       this.props.history.push('/purchases');
     });
 }
+//change to purchases
 
 export default {
   createBasket, getBasket, writeBasket, getItem, addItem,

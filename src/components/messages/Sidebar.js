@@ -2,11 +2,13 @@ import React from 'react';
 import { tokenUserId } from '../../lib/auth';
 
 function messagesInConversation(obj, message){
+  console.log('this is message.to._id', message.to._id)
   const otherUser = message.to._id === tokenUserId() ?
     message.from : message.to;
-  if(!obj[otherUser._id]) {      obj[otherUser._id] = {
-    user: otherUser, count: 1
-  };
+  if(!obj[otherUser._id]) {
+    obj[otherUser._id] = {
+      user: otherUser, count: 1
+    };
   } else obj[otherUser._id].count++;
   return obj;
 }
@@ -23,7 +25,7 @@ function Sidebar({ messages, handleClick }){
               <div key={userId} className="media" onClick={() => handleClick(userId)}>
                 <div className="media-content">
                   <div className="content">
-                    <strong>{messageCounts[userId].user.username}</strong> ({messageCounts[userId].count})
+                    <strong>{messageCounts[userId].user.name}</strong> ({messageCounts[userId].count})
                   </div>
                 </div>
               </div>

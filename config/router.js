@@ -27,6 +27,9 @@ router.route('/messages')
   .get(secureRoute, messageController.indexRoute)
   .post(secureRoute, messageController.createRoute);
 
+// router.route('/messages/:userId')
+//   .get(secureRoute, messageController.newRoute);
+
 router.route('/messages/:id').delete(secureRoute, messageController.deleteRoute);
 
 module.exports = router;

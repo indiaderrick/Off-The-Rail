@@ -6,6 +6,7 @@ class Basket extends React.Component{
     super(props);
     this.state={};
     this.handleDelete = this.handleDelete.bind(this);
+    this.checkout = basketLib.checkout.bind(this);
   }
 
   componentDidMount(){

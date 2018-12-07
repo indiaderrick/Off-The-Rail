@@ -3,7 +3,7 @@ const Message = require('../models/message');
 function indexRoute(req, res, next){
   Message
     .find({ $or: [{ from: req.tokenUserId }, { to: req.tokenUserId}] })
-    .populate('from to', 'username')
+    .populate('from to', 'username name')
     .sort('createdAt')
     .then(messages => res.json(messages))
     .catch(next);
@@ -24,6 +24,7 @@ function deleteRoute(req, res, next){
     .then(() => res.sendStatus(204))
     .catch(next);
 }
+
 
 module.exports = {
   indexRoute: indexRoute,

@@ -34,7 +34,7 @@ class Header extends React.Component {
           {!isAuthenticated() && <Link className="navbar-item" to={'/register'}>Register</Link>}
           {isAuthenticated() && <a onClick={this.handleLogout} className="navbar-item">Log Out</a>}
         </div>
-        
+
       </nav>
     );
   }

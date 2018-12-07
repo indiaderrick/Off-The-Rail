@@ -9,6 +9,7 @@ import Register from './components/auth/Register';
 import OwnProfile from './components/users/OwnProfile';
 import Basket from './components/Basket';
 import Messages from './components/messages/Messages';
+import Purchases from './components/PurchaseHistory';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import 'bulma';
@@ -26,8 +27,10 @@ class App extends React.Component {
               <Route exact path='/login' component={Login}/>
               <Route exact path='/register' component={Register}/>
               <Route exact path='/basket' component={Basket}/>
-              <Route exact path='/messages' component={Messages}/>
+              <Route exact path='/purchases' component={Purchases}/>
               <Route path='/items/new' component={ItemNew}/>
+              // <Route exact path='/messages' component={Messages}/>
+              <Route exact path='/messages/:id' component={Messages}/>
               <Route path='/users/:id' component={OwnProfile}/>
               <Route path='/items/:id' component={ItemShow}/>
             </Switch>
