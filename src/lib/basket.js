@@ -23,7 +23,7 @@ export function getItem(basket, itemId) {
 }
 //maybe change result back to item.
 
-export function addItem(itemToAdd, quantity) {
+export function addItem(itemToAdd) {
   const basket = getBasket();
   itemToAdd.item = itemToAdd._id; // Useful for the backend Purchase model
   if (!getItem(basket, itemToAdd._id))
@@ -69,3 +69,13 @@ export default {
   updateQuantity, removeItem, totalBasketPrice,
   checkout
 };
+
+
+// export function addItem(itemToAdd, quantity) {
+//   const basket = getBasket();
+//   itemToAdd.item = itemToAdd._id; // Useful for the backend Purchase model
+//   if (!getItem(basket, itemToAdd._id))
+//     basket.push(itemToAdd);
+//   // incrementQuantity(basket, itemToAdd._id, quantity);
+//   writeBasket(basket);
+// }

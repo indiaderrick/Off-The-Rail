@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import {isAuthenticated, deleteToken, decodeToken, tokenUserId } from '../lib/auth';
-import basketLib from '../lib/basket';
 
 class Header extends React.Component {
   constructor(props){
@@ -12,8 +11,10 @@ class Header extends React.Component {
   handleLogout(){
     deleteToken();
     this.props.history.push('/');
-    basketLib.removeBasket();
+    localStorage.removeItem('basket');
+    console.log('logging out');
   }
+  //use function from basket lib to remove basket!!
 
   render(){
     return (
