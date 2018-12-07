@@ -1,3 +1,5 @@
+//try making a new page for new messages - new component, go to /users/userId/message OR /items/itemId/userId/message --> send create request to back end with fids from(currently logged in) & to (userId in url)!!!
+
 import React from 'react';
 import axios from 'axios';
 import { authorizationHeader } from '../../lib/auth';
@@ -15,6 +17,8 @@ class Messages extends React.Component{
     this.deleteMessage = this.deleteMessage.bind(this);
     this.handleChange = handleChange.bind(this);
     this.createMessage = this.createMessage.bind(this);
+    console.log('URL', this.props.match.params);
+
   }
 
   componentDidMount(){
@@ -35,6 +39,7 @@ class Messages extends React.Component{
   }
 
   createMessage(){
+    //if url is undefinesd, else - post to url._id
     axios.post('/api/messages', {
       content: this.state.newMessage,
       to: this.state.withWhichUserId

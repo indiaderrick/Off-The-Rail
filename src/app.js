@@ -29,7 +29,7 @@ class App extends React.Component {
               <Route exact path='/basket' component={Basket}/>
               <Route exact path='/purchases' component={Purchases}/>
               <Route path='/items/new' component={ItemNew}/>
-              // <Route exact path='/messages' component={Messages}/>
+              <Route exact path='/messages' component={Messages}/>
               <Route exact path='/messages/:id' component={Messages}/>
               <Route path='/users/:id' component={OwnProfile}/>
               <Route path='/items/:id' component={ItemShow}/>
