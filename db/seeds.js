@@ -15,19 +15,19 @@ const messageData = [
   {
     from: userIds[0],
     to: userIds[1],
-    content: 'Hello Ellie!'
+    content: 'Hello Lily!'
   }, {
     from: userIds[1],
     to: userIds[0],
-    content: 'Hi Rob!'
-  }, {
-    from: userIds[0],
-    to: userIds[1],
-    content: 'Hi Matt!'
+    content: 'Hi India!'
   }, {
     from: userIds[1],
     to: userIds[0],
-    content: 'Hi Rob! How\'s life?'
+    content: 'Hi India!'
+  }, {
+    from: userIds[1],
+    to: userIds[0],
+    content: 'Hi India! How\'s life?'
   }
 ];
 
