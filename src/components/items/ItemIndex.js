@@ -18,7 +18,10 @@ class WonderIndex extends React.Component{
 
   render(){
     return(
-      <section className="columns is-multiline">
+      <section className="index container columns is-multiline">
+        <div className="hero column is-12-desktop">
+          <h1> Search designer clothes at reasonable prices </h1>
+        </div>
         <div className="eachItem">
           {this.state.items && this.state.items.map(item =>
             <div className="column is-4-desktop" key={item._id}>

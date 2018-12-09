@@ -47,7 +47,7 @@ class ItemShow extends React.Component{
     const item = this.state.item;
 
     return(
-      <section className="container">
+      <section className="container show">
         {item
           ?
           <div className="columns is-multiline is-12-desktop">

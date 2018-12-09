@@ -18,11 +18,11 @@ class Header extends React.Component {
 
   render(){
     return (
-      <nav className="navbar is-primary">
+      <nav className="navbar has-background-white is-fixed-top">
 
-        <div className="navbar-brand">
-          {isAuthenticated() && <h2 className="title is-2">Hello {decodeToken().name}</h2>}
-        </div>
+        <Link to={'/'}><div className="navbar-brand">
+          <img className="logo" src="https://i.pinimg.com/originals/ea/aa/5f/eaaa5f39862b3a573f83b863c11a6f95.jpg" /><p className="navbar-item">Off The Rail</p>
+        </div></Link>
 
         <div className="navbar-end">
           <Link className="navbar-item" to={'/items'}>Explore</Link>

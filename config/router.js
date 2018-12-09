@@ -30,6 +30,10 @@ router.route('/messages')
 // router.route('/messages/:userId')
 //   .get(secureRoute, messageController.newRoute);
 
+router.route('/users/:userId/follow')
+  .post(secureRoute, userController.followRoute)
+  .delete(secureRoute, userController.unfollowRoute);
+
 router.route('/messages/:id').delete(secureRoute, messageController.deleteRoute);
 
 module.exports = router;

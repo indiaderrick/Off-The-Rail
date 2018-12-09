@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/Header';
+import Home from './components/Home';
 import ItemIndex from './components/items/ItemIndex';
 import ItemShow from './components/items/ItemShow';
 import ItemNew from './components/items/New';
@@ -23,6 +24,7 @@ class App extends React.Component {
           <Header />
           <main>
             <Switch>
+              <Route exact path='/' component={Home}/>
               <Route exact path='/items' component={ItemIndex}/>
               <Route exact path='/login' component={Login}/>
               <Route exact path='/register' component={Register}/>

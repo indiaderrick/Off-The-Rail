@@ -37,8 +37,9 @@ class OwnProfile extends React.Component{
   render(){
     const user = this.state.user;
     return(
-      <div>
+      <div className="profile">
         <h1> {user && user.name} </h1>
+        <button className="button buttonColor"> Follow </button>
         <hr />
         <p> {user && user.bio} </p>
         <hr />

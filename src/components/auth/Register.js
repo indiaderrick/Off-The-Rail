@@ -26,7 +26,7 @@ class Register extends React.Component {
   //change redirect to home later
   render(){
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form className="register" onSubmit={this.handleSubmit}>
         <div className="field">
           <input
             className="input"

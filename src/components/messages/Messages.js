@@ -52,7 +52,7 @@ class Messages extends React.Component{
   render(){
     const messages = this.state.messages;
     return(
-      <main>
+      <main className="messages">
         <h1 className="title is-2">Messages</h1>
 
         <div className="message-container">

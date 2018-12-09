@@ -1,3 +1,5 @@
+
+
 .eachItem{
   display: flex;
     flex-wrap: wrap;
@@ -8,4 +10,58 @@
 }
 .forms{
   padding: 30px 0 0 80px;
+}
+
+.body{
+  font-family: 'Playfair Display', serif;
+  .index, .profile, .messages, .show, .basket, .login, .register{
+    margin: 100px 0 0 60px;
+  }
+  .basket{
+    .buttonColor{
+      background-color: #f08b40;
+    }
+    .basketTitle{
+      font-size: 40px;
+      margin: 130px 0 40px 0;
+    }
+  }
+  .intro{
+    color: white;
+    font-size: 19px;
+  }
+  .navbar{
+    height: 80px;
+    font-size: 17px;
+    border-bottom: 1px solid silver;
+    .navbar-item{
+      :hover{
+        color:red !important;
+      }
+    }
+    .logo{
+      height: 80px;
+      width: 100px;
+      border-bottom: 1px solid silver;
+    }
+  }
+  .welcome-section {
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://i.imgur.com/o2dawmZ.jpg");
+    background-size: cover;
+    // background-position-x: center;
+    background-color: none;
+    text-align: center;
+    .title{
+      border: solid 3px white;
+      color: white;
+      padding: 6px 8px 6px 8px;
+      margin-bottom: 180px;
+
+    }
+
+  }
 }
