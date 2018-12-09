@@ -22,6 +22,11 @@ userSchema.virtual('addedItems', {
   foreignField: 'addedBy'
 });
 
+userSchema.virtual('peopleYouFollow', {
+  ref: 'User',
+  localField: '_id',
+  foreignField: 'followers'
+});
 
 userSchema.set('toJSON', {
   virtuals: true

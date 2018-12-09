@@ -1,11 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import { decodeToken, tokenUserId } from '../../lib/auth';
+import { authorizationHeader } from '../../lib/auth';
 
 class OwnProfile extends React.Component{
   constructor(props){
     super(props);
     this.state={};
+    this.followUser = this.followUser.bind(this);
     console.log('this is decodeToken', decodeToken());
     console.log('this is token user Id', tokenUserId());
     console.log('this is this.props.match.params._id', this.props.match.params.id);
@@ -34,12 +36,20 @@ class OwnProfile extends React.Component{
     }
   }
 
+  followUser(){
+    const currentUserId = decodeToken().sub;
+    this.state.user.followers.push(currentUserId);
+    axios.post(`/api/users/${this.state.user._id}/follow`, this.state, authorizationHeader());
+    console.log('follwoers', this.state.user);
+  }
+
   render(){
+    console.log('this is user whose page it is', this.state.user);
     const user = this.state.user;
     return(
       <div className="profile">
-        <h1> {user && user.name} </h1>
-        <button className="button buttonColor"> Follow </button>
+        <h1 className="profileName"> {user && user.name} </h1>
+        <button className="button buttonColor" onClick={this.followUser}> Follow </button>
         <hr />
         <p> {user && user.bio} </p>
         <hr />
@@ -49,6 +59,15 @@ class OwnProfile extends React.Component{
             <div key={i}>
               <li> Bought for £{item.retailPrice}, Now £{item.newPrice}. You save £{item.retailPrice - item.newPrice }! </li>
               <li> {item.name} </li>
+            </div>
+          )}
+        </ul>
+        <hr />
+        <ul>
+        <h1> followers: </h1>
+          { user && user.followers.map((follower, i) =>
+            <div key={i}>
+              <li> @{follower.username} </li>
             </div>
           )}
         </ul>
