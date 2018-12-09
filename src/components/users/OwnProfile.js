@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { decodeToken, tokenUserId } from '../../lib/auth';
 import { authorizationHeader } from '../../lib/auth';
+import { Link } from 'react-router-dom';
 
 class OwnProfile extends React.Component{
   constructor(props){
@@ -51,6 +52,7 @@ class OwnProfile extends React.Component{
         <h1 className="profileName"> {user && user.name} </h1>
         <button className="button buttonColor" onClick={this.followUser}> Follow </button>
         <hr />
+        <Link to={'/purchases'}><button>View Purchase History </button></Link>
         <p> {user && user.bio} </p>
         <hr />
         <h2> Added Items: </h2>

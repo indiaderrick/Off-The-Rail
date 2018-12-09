@@ -19,7 +19,7 @@ class PurchaseHistory extends React.Component {
     console.log(this.state.purchases);
     const purchases = this.state.purchases;
     return(
-      <main>
+      <main className="purchases">
         {
           purchases && purchases.map(purchase =>
             <div key={purchase._id} style={{ display: 'flex', justifyContent: 'space-around' }}>
