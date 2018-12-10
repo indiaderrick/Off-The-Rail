@@ -8,7 +8,7 @@ class Home extends React.Component{
 
   render(){
     return(
-      <div className="welcome-section">
+      <div className="welcome-section columns is-multiline">
         <div>
           <p className="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus maxime, reprehenderit nesciunt deleniti eveniet a magni. </p>
         </div>

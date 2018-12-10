@@ -75,10 +75,14 @@ class OwnProfile extends React.Component{
     return(
       <div className="profile">
         <h1 className="profileName"> {user && user.name} </h1>
+        <p > Based in: {user && user.city} </p>
         {
-          (tokenUserId() !== this.props.match.params.id)
+          ( user && tokenUserId() !== this.props.match.params.id)
           &&
           <div>
+            <div>
+              <Link to={`/messages/${user._id}/new`}><button className="button"> Message User </button></Link>
+            </div>
             {
               (user && user.followers.includes(decodeToken().sub))
                 ?
@@ -90,11 +94,10 @@ class OwnProfile extends React.Component{
         }
         <hr />
         {
-          (tokenUserId() === this.props.match.params.id)
+          (user && tokenUserId() === this.props.match.params.id)
             &&
             <div>
               <Link to={'/purchases'}><button className="button"> Purchase History </button></Link>
-
             </div>
         }
         <p> {user && user.bio} </p>
@@ -108,11 +111,9 @@ class OwnProfile extends React.Component{
         }
         <hr />
         { (user && user.addedItems )
-          ?
+          &&
           <p> Added Items ({user.addedItems.length}): </p>
-          :
-          <p> No items added yet </p>}
-
+        }
         <ul>
           { (user && user.addedItems)
             ?

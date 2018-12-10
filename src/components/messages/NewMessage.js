@@ -13,6 +13,14 @@ class NewMessage extends React.Component{
     console.log('this is url id', this.props.match.params.id);
   }
 
+  componentDidMount(){
+    axios.get(`/api/users/${this.props.match.params.id}`)
+      .then(result => {
+        this.setState({ user: result.data });
+        console.log('this is this.state', this.state);
+      });
+  }
+
   createNewMessage(){
     axios.post('/api/messages', {
       content: this.state.newMessage,
@@ -23,10 +31,10 @@ class NewMessage extends React.Component{
   }
 
   render(){
-    // const messageUser = this.props.match.parmas.id;
+    const user = this.state.user
     return(
       <section className="newMessage container">
-        <h1> COMPOSE A NEW MESSAGE </h1>
+        <h1> MESSAGE { user && user.name.toUpperCase()}</h1>
         <div className="media-content">
           <div className="field">
             <p className="control">

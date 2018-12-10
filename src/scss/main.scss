@@ -7,7 +7,9 @@
   width: 100%;
   height: 400px;
 }
-
+.navbar-item:hover {
+  color: black !important;
+}
 
 .eachItem{
   display: flex;
@@ -19,6 +21,7 @@
 }
 .forms{
   padding: 30px 0 0 80px;
+  margin-top: 40px;
 }
 
 .body{
@@ -62,12 +65,17 @@
       border-bottom: 1px solid silver;
     }
   }
+
   .welcome-section {
-    height: 800px;
+    height: 600px;
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: url("https://marketplace.canva.com/MACWWS0wHhI/1/screen/canva-fashion-show%2C-fashion%2C-catwalk%2C-model%2C-female%2C-style-MACWWS0wHhI.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     background-color: none;
     text-align: center;

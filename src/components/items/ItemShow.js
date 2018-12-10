@@ -33,10 +33,6 @@ class ItemShow extends React.Component{
       });
   }
 
-  // messageUserOfItem(){
-  //   console.log('message this user', this.state.item.addedBy.username);
-  // }
-
   handleClick() {
     console.log('this is this.state', this.state);
     addItem(this.state.item, parseInt(this.state.quantity));
