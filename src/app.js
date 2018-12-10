@@ -5,6 +5,7 @@ import Home from './components/Home';
 import ItemIndex from './components/items/ItemIndex';
 import ItemShow from './components/items/ItemShow';
 import ItemNew from './components/items/New';
+import ItemEdit from './components/items/Edit';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import OwnProfile from './components/users/OwnProfile';
@@ -33,9 +34,10 @@ class App extends React.Component {
               <Route exact path='/purchases' component={Purchases}/>
               <Route path='/items/new' component={ItemNew}/>
               <Route exact path='/messages' component={Messages}/>
+              <Route path='/items/:id/edit' component={ItemEdit}/>
+              <Route path='/users/:id' component={OwnProfile}/>
               <Route exact path='/messages/:id/new' component={NewMessage}/>
               <Route exact path='/messages/:id' component={Messages}/>
-              <Route path='/users/:id' component={OwnProfile}/>
               <Route path='/items/:id' component={ItemShow}/>
             </Switch>
           </main>

@@ -11,7 +11,7 @@ function ItemForm({ handleChange, handleSubmit }){
       <FormInput name="description" type="text" handleChange={handleChange} />
       <FormInput name="retailPrice" type="number" handleChange={handleChange} />
       <FormInput name="newPrice" type="number" handleChange={handleChange} />
-      <button className="button is-rounded is-outlined"> Create </button>
+      <button className="button is-rounded is-outlined"> Create/ Edit </button>
     </form>
   );
 }

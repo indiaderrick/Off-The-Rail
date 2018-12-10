@@ -7,7 +7,7 @@ import { handleChange } from '../../lib/common';
 import Sidebar from './Sidebar';
 import Conversation from './Conversation';
 import ComposeMessage from './ComposeMessage';
-
+import { decodeToken } from '../../lib/auth';
 
 class Messages extends React.Component{
   constructor(props){
@@ -19,7 +19,7 @@ class Messages extends React.Component{
     this.deleteMessage = this.deleteMessage.bind(this);
     this.handleChange = handleChange.bind(this);
     this.createMessage = this.createMessage.bind(this);
-    console.log('URL', this.props.match.params);
+    console.log('User', decodeToken());
 
   }
 

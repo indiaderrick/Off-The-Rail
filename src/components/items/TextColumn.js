@@ -18,7 +18,11 @@ function TextColumn({ item, handleDelete }) {
         <p> <i className="fas fa-map-marker-alt"></i> {item.addedBy.city}</p>
 
         <p> {item.description}</p>
-        <button onClick={handleDelete}> Delete </button>
+        <button className="button is-danger" onClick={handleDelete}> Delete </button>
+        <div>
+          <br />
+          <Link to={`/items/${item._id}/edit`}><button className="button is-primary"> Edit Item </button></Link>
+        </div>
         <hr></hr>
       </div>
 

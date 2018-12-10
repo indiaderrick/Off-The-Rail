@@ -6,7 +6,7 @@ function MessageBox({ message, handleDelete }) {
   return (
     <div className="media messageBox" key={message._id}>
       <figure className="media-left">
-        <p className="image is-64x64">
+        <p className="image is-48x48">
           <img src={message.from.profilePicture}/>
         </p>
       </figure>

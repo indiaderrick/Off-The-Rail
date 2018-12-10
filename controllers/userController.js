@@ -11,14 +11,15 @@ function profileShow(req, res, next) {
     .catch(next);
 }
 
-// function getFollowers(req, res, next) {
-//   console.log('this is req.params', req.params);
+// function editUser(req, res, next){
 //   User
 //     .findById(req.params.userId)
-//     .populate('followers')
+//     .exec()
 //     .then(user => {
-//       res.json(user);
+//       Object.assign(user, req.body);
+//       return user.save();
 //     })
+//     .then(user => res.json(user))
 //     .catch(next);
 // }
 
@@ -61,4 +62,5 @@ module.exports = {
   profileShow: profileShow,
   followRoute: followRoute,
   unfollowRoute: unfollowRoute
+  // editUser: editUser
 };

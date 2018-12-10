@@ -3,6 +3,7 @@ import axios from 'axios';
 import { decodeToken, tokenUserId } from '../../lib/auth';
 import { authorizationHeader } from '../../lib/auth';
 import { Link } from 'react-router-dom';
+import UserMap from '../Map';
 
 class OwnProfile extends React.Component{
   constructor(props){
@@ -10,10 +11,22 @@ class OwnProfile extends React.Component{
     this.state={};
     this.followUser = this.followUser.bind(this);
     this.unfollowUser = this.unfollowUser.bind(this);
+    this.getUser = this.getUser.bind(this);
+    this.getLocation = this.getLocation.bind(this);
     console.log('this is decodeToken', decodeToken());
   }
 
   componentDidMount(){
+    navigator.geolocation.getCurrentPosition(this.getLocation, this.getUser);
+  }
+
+  getLocation(pos) {
+    this.setState({ userPosition: [pos.coords.latitude, pos.coords.longitude]}, () => {
+      this.getUser();
+    });
+  }
+
+  getUser(){
     if(tokenUserId() === this.props.match.params.id){
       axios.get(`/api/users/${decodeToken().sub}`)
         .then(result => {
@@ -59,41 +72,65 @@ class OwnProfile extends React.Component{
 
   render(){
     const user = this.state.user;
-
     return(
       <div className="profile">
         <h1 className="profileName"> {user && user.name} </h1>
         {
-          (user && user.followers.includes(decodeToken().sub))
-            ?
-            <button className="button" onClick={this.unfollowUser}> Unfollow </button>
-            :
-
-            <button className="button" onClick={this.followUser}> Follow </button>
+          (tokenUserId() !== this.props.match.params.id)
+          &&
+          <div>
+            {
+              (user && user.followers.includes(decodeToken().sub))
+                ?
+                <button className="button" onClick={this.unfollowUser}> Unfollow </button>
+                :
+                <button className="button" onClick={this.followUser}> Follow </button>
+            }
+          </div>
         }
         <hr />
         {
           (tokenUserId() === this.props.match.params.id)
             &&
-            <Link to={'/purchases'}><button>View Purchase History </button></Link>
+            <div>
+              <Link to={'/purchases'}><button className="button"> Purchase History </button></Link>
+
+            </div>
         }
         <p> {user && user.bio} </p>
+        {!this.state.userPosition && !user
+          ?
+          <p>Loading map...</p>
+          :
+          <UserMap
+            userPosition={this.state.userPosition}
+            user={ user } />
+        }
         <hr />
-        <h2> Added Items: </h2>
+        { (user && user.addedItems )
+          ?
+          <p> Added Items ({user.addedItems.length}): </p>
+          :
+          <p> No items added yet </p>}
+
         <ul>
-          { user && user.addedItems.map((item, i) =>
-            <div key={i}>
-              <li> Bought for £{item.retailPrice}, Now £{item.newPrice}. You save £{item.retailPrice - item.newPrice }! </li>
-              <li> {item.name} </li>
-            </div>
-          )}
+          { (user && user.addedItems)
+            ?
+            user.addedItems.map((item, i) =>
+              <div key={i}>
+                <li> Bought for £{item.retailPrice}, Now £{item.newPrice}. You save £{item.retailPrice - item.newPrice }! </li>
+                <li> {item.name} </li>
+              </div>
+            )
+            :
+            <p> No items added yet </p> }
         </ul>
         <hr />
         <ul>
-        <h1> followers: </h1>
+          { user && <li> Followers ({user.followers.length}) : </li>}
           { user && user.followers.map((follower, i) =>
             <div key={i}>
-              <li> @{follower.username} </li>
+              <li> @{follower.username} <span><img className="icon" src={follower.profilePicture} /></span></li>
             </div>
           )}
         </ul>

@@ -20,15 +20,21 @@ class PurchaseHistory extends React.Component {
     const purchases = this.state.purchases;
     return(
       <main className="purchases">
+      <ul>
         {
-          purchases && purchases.map(purchase =>
+          purchases
+          ?
+          purchases.map(purchase =>
             <div key={purchase._id} style={{ display: 'flex', justifyContent: 'space-around' }}>
               <p>{purchase.item.name}</p>
               <p>£{purchase.item.newPrice}</p>
               <p>{moment(purchase.createdAt).fromNow()}</p>
             </div>
           )
+          :
+          <p> You havent bought anything yet! </p>
         }
+        </ul>
       </main>
     );
   }

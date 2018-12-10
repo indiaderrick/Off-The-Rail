@@ -20,6 +20,7 @@ router.route('/login').post(authController.loginRoute);
 
 router.route('/users/:userId')
   .get(userController.profileShow);
+  // .put(userController.editUser);
 
 
 router.route('/checkout').post(secureRoute, purchaseController.createRoute);
