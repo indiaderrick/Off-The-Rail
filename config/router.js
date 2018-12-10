@@ -18,7 +18,11 @@ router.route('/items/:id')
 router.route('/register').post(authController.registerRoute);
 router.route('/login').post(authController.loginRoute);
 
-router.route('/users/:userId').get(userController.profileShow);
+router.route('/users/:userId')
+  .get(userController.profileShow);
+
+// router.route('/users/:userId/followers')
+//   .get(userController.getFollowers);
 
 router.route('/checkout').post(secureRoute, purchaseController.createRoute);
 router.route('/purchases').get(secureRoute, purchaseController.userIndexRoute);

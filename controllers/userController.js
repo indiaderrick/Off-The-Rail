@@ -4,12 +4,23 @@ function profileShow(req, res, next) {
   console.log('this is req.params', req.params);
   User
     .findById(req.params.userId)
-    .populate('addedItems followers')
+    .populate('addedItems peopleYouFollow')
     .then(user => {
       res.json(user);
     })
     .catch(next);
 }
+
+// function getFollowers(req, res, next) {
+//   console.log('this is req.params', req.params);
+//   User
+//     .findById(req.params.userId)
+//     .populate('followers')
+//     .then(user => {
+//       res.json(user);
+//     })
+//     .catch(next);
+// }
 
 function followRoute(req, res, next) {
   console.log('this is req.currentUserId', req.currentUser._id);

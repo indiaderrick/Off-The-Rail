@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import TextColumn from './TextColumn';
-import { authorizationHeader } from '../../lib/auth';
+import { authorizationHeader, isAuthenticated } from '../../lib/auth';
 import { addItem } from '../../lib/basket';
 import { handleChange } from '../../lib/common';
 // import { messageUserOfItem } from '../../lib/messages';
@@ -58,10 +58,10 @@ class ItemShow extends React.Component{
               <TextColumn item={item} handleDelete={this.handleDelete}/>
             </div>
             <div className="column is-4">
-              <button className="button" onClick={this.handleClick}>Add to basket</button>
+              {isAuthenticated() && <button className="button" onClick={this.handleClick}>Add to basket</button>}
             </div>
             <div className="column is-4">
-              <Link to={`/messages/${item.addedBy._id}`}><button className="button" >Message User</button></Link>
+              { isAuthenticated() && <Link to={`/messages/${item.addedBy._id}`}><button className="button" >Message User</button></Link> }
             </div>
           </div>
           :

@@ -21,7 +21,7 @@ class Header extends React.Component {
       <nav className="navbar has-background-white is-fixed-top">
 
         <Link to={'/'}><div className="navbar-brand">
-          <img className="logo" src="https://i.pinimg.com/originals/ea/aa/5f/eaaa5f39862b3a573f83b863c11a6f95.jpg" /><p className="navbar-item">Off The Rail</p>
+          <img className="logo" src="https://i.pinimg.com/originals/ea/aa/5f/eaaa5f39862b3a573f83b863c11a6f95.jpg" /><p className="navbar-item">SiteName</p>
         </div></Link>
 
         <div className="navbar-end">
