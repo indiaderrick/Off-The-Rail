@@ -61,7 +61,7 @@ class ItemShow extends React.Component{
               {isAuthenticated() && <button className="button" onClick={this.handleClick}>Add to basket</button>}
             </div>
             <div className="column is-4">
-              { isAuthenticated() && <Link to={`/messages/${item.addedBy._id}`}><button className="button" >Message User</button></Link> }
+              { isAuthenticated() && <Link to={`/messages/${item.addedBy._id}/new`}><button className="button" >Message User</button></Link> }
             </div>
           </div>
           :
@@ -82,3 +82,7 @@ export default ItemShow;
 //     }
 //   })
 // }
+
+// <div className="column is-4">
+//   { isAuthenticated() && <Link to={`/messages/${item.addedBy._id}`}><button className="button" >Message User</button></Link> }
+// </div>

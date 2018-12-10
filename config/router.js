@@ -21,8 +21,6 @@ router.route('/login').post(authController.loginRoute);
 router.route('/users/:userId')
   .get(userController.profileShow);
 
-// router.route('/users/:userId/followers')
-//   .get(userController.getFollowers);
 
 router.route('/checkout').post(secureRoute, purchaseController.createRoute);
 router.route('/purchases').get(secureRoute, purchaseController.userIndexRoute);
@@ -31,8 +29,6 @@ router.route('/messages')
   .get(secureRoute, messageController.indexRoute)
   .post(secureRoute, messageController.createRoute);
 
-// router.route('/messages/:userId')
-//   .get(secureRoute, messageController.newRoute);
 
 router.route('/users/:userId/follow')
   .post(secureRoute, userController.followRoute)

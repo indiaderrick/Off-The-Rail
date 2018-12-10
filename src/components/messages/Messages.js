@@ -12,7 +12,9 @@ import ComposeMessage from './ComposeMessage';
 class Messages extends React.Component{
   constructor(props){
     super(props);
-    this.state= {};
+    this.state= {
+      // newMessage: ''
+    };
     this.pickConversation = this.pickConversation.bind(this);
     this.deleteMessage = this.deleteMessage.bind(this);
     this.handleChange = handleChange.bind(this);
@@ -53,7 +55,7 @@ class Messages extends React.Component{
     const messages = this.state.messages;
     return(
       <main className="messages">
-        <h1 className="title is-2">Messages</h1>
+        <h1 className="title is-2 messagesTitle">Messages</h1>
 
         <div className="message-container">
 

@@ -7,7 +7,6 @@ function Conversation({ messages, withWhichUserId, handleDelete }) {
   );
   return (
     <div>
-      <p> {withWhichUserId} </p>
       {filtered && filtered.map(message =>
         <MessageBox key={message._id} message={message} handleDelete={handleDelete} />
       )}

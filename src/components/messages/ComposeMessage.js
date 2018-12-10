@@ -5,7 +5,7 @@ function ComposeMessage(props){
   return(
     <article className="media">
       <div className="media-left">
-        <p className="image is-64x64"> {decodeToken().name}</p>
+        <p className="image is-64x64"> <img src={decodeToken().profilePicture} /></p>
       </div>
       <div className="media-content">
 
@@ -18,7 +18,7 @@ function ComposeMessage(props){
         <nav className="level">
           <div className="level-left">
             <div className="level-item" onClick={props.handleSubmit}>
-              <a className="button is-info" disabled={!props.withWhichUserId}>Submit</a>
+              <button className="button" disabled={!props.withWhichUserId}>Submit</button>
             </div>
           </div>
         </nav>

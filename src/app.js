@@ -10,6 +10,7 @@ import Register from './components/auth/Register';
 import OwnProfile from './components/users/OwnProfile';
 import Basket from './components/Basket';
 import Messages from './components/messages/Messages';
+import NewMessage from './components/messages/NewMessage';
 import Purchases from './components/PurchaseHistory';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -32,6 +33,7 @@ class App extends React.Component {
               <Route exact path='/purchases' component={Purchases}/>
               <Route path='/items/new' component={ItemNew}/>
               <Route exact path='/messages' component={Messages}/>
+              <Route exact path='/messages/:id/new' component={NewMessage}/>
               <Route exact path='/messages/:id' component={Messages}/>
               <Route path='/users/:id' component={OwnProfile}/>
               <Route path='/items/:id' component={ItemShow}/>

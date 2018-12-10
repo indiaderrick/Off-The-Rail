@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { decodeToken, tokenUserId, isAuthenticated } from '../../lib/auth';
+import { decodeToken, tokenUserId } from '../../lib/auth';
 import { authorizationHeader } from '../../lib/auth';
 import { Link } from 'react-router-dom';
 
@@ -72,7 +72,11 @@ class OwnProfile extends React.Component{
             <button className="button" onClick={this.followUser}> Follow </button>
         }
         <hr />
-        <Link to={'/purchases'}><button>View Purchase History </button></Link>
+        {
+          (tokenUserId() === this.props.match.params.id)
+            &&
+            <Link to={'/purchases'}><button>View Purchase History </button></Link>
+        }
         <p> {user && user.bio} </p>
         <hr />
         <h2> Added Items: </h2>
