@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { isAuthenticated, tokenUserId } from '../../lib/auth';
 
-function TextColumn({ item, handleDelete }) {
+function TextColumn({ item, handleDelete, saveForLater, unsave }) {
   console.log('this is addedBy', item.addedBy);
 
   return (
@@ -33,7 +33,13 @@ function TextColumn({ item, handleDelete }) {
         </div>
       }
       <hr></hr>
-
+      {
+        (item && item.savedForLater.includes(tokenUserId()))
+          ?
+          <button className="button heart" onClick={unsave}> <i className="fas fa-heart"></i> </button>
+          :
+          <button className="button heart" onClick={saveForLater}> <i className="far fa-heart"></i> </button>
+      }
     </article>
   );
 }

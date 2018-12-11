@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import TextColumn from './TextColumn';
-import { authorizationHeader, isAuthenticated, tokenUserId } from '../../lib/auth';
+import { authorizationHeader, isAuthenticated, tokenUserId, decodeToken } from '../../lib/auth';
 import { addItem } from '../../lib/basket';
 import { handleChange } from '../../lib/common';
 // import { messageUserOfItem } from '../../lib/messages';
@@ -15,6 +15,8 @@ class ItemShow extends React.Component{
     this.handleDelete = this.handleDelete.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = handleChange.bind(this);
+    this.saveForLater = this.saveForLater.bind(this);
+    this.unsave = this.unsave.bind(this);
     // this.messageUserOfItem = this.messageUserOfItem.bind(this);
   }
 
@@ -39,6 +41,27 @@ class ItemShow extends React.Component{
     this.props.history.push('/basket');
   }
 
+  saveForLater(){
+    const currentUserId = decodeToken().sub;
+    const savedForLater = this.state.item.savedForLater;
+    if(!savedForLater.includes(currentUserId)){
+      savedForLater.push(currentUserId);
+      this.setState({ savedForLater: savedForLater });
+      axios.post(`/api/items/${this.state.item._id}/saveForLater`, this.state.savedForLater, authorizationHeader());
+      console.log('savedForLater', this.state.item);
+    }
+  }
+
+  unsave(){
+    const currentUserId = decodeToken().sub;
+    const savedForLater = this.state.item.savedForLater;
+    if(savedForLater.includes(currentUserId)){
+      savedForLater.splice(savedForLater.indexOf(currentUserId), 1);
+      this.setState({ savedForLater: savedForLater});
+      axios.delete(`/api/items/${this.state.user._id}/saveForLater`, authorizationHeader());
+    }
+  }
+
   render(){
     const item = this.state.item;
 
@@ -54,7 +77,7 @@ class ItemShow extends React.Component{
               <img src={item.image} />
             </div>
             <div className="column is-6-desktop">
-              <TextColumn item={item} handleDelete={this.handleDelete}/>
+              <TextColumn item={item} unsave={this.unsave} saveForLater={this.saveForLater} handleDelete={this.handleDelete}/>
             </div>
 
             <div className="column is-4">
