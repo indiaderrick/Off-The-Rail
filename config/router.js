@@ -4,6 +4,7 @@ const authController = require('../controllers/authController');
 const userController = require('../controllers/userController');
 const purchaseController = require('../controllers/purchaseController');
 const messageController = require('../controllers/messageController');
+const saveForLaterController = require('../controllers/saveForLaterController');
 const secureRoute = require('../lib/secureRoute');
 
 router.route('/items')
@@ -30,6 +31,9 @@ router.route('/messages')
   .get(secureRoute, messageController.indexRoute)
   .post(secureRoute, messageController.createRoute);
 
+router.route('/items/:itemId/saveForLater')
+  .post(secureRoute, saveForLaterController.saveRoute)
+  .delete(secureRoute, saveForLaterController.deleteRoute);
 
 router.route('/users/:userId/follow')
   .post(secureRoute, userController.followRoute)

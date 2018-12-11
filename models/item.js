@@ -9,7 +9,7 @@ const itemSchema = new mongoose.Schema({
   addedBy: {
     type: mongoose.Schema.ObjectId,
     ref: 'User' },
-
+  savedForLater: [ { type: mongoose.Schema.ObjectId, ref: 'User' }],
   retailPrice: Number,
   newPrice: Number
 
