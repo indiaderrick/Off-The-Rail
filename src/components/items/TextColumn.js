@@ -7,7 +7,7 @@ function TextColumn({ item, handleDelete }) {
   return (
     <article>
       <div>
-        <h3 >{item.name}</h3>
+        <strong className="strong">{item.name}</strong>
         { isAuthenticated()
           ?
           <Link to={`/users/${item.addedBy._id}`}> <p> ADDED BY: {item.addedBy.name}</p></Link>

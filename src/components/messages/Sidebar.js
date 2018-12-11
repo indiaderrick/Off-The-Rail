@@ -25,7 +25,7 @@ function Sidebar({ messages, handleClick }){
               <div key={userId} className="media" onClick={() => handleClick(userId)}>
                 <div className="media-content">
                   <div className="content">
-                    <strong><span>{messageCounts[userId].user.profilePicture}</span>{messageCounts[userId].user.name}</strong> ({messageCounts[userId].count})
+                    <strong><span></span>{messageCounts[userId].user.name}</strong> ({messageCounts[userId].count})
                   </div>
                 </div>
               </div>

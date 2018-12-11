@@ -33,10 +33,11 @@ const messageData = [
 
 const userData = [{
   username: 'indiaderrick',
+  profilePicture: 'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/37192300_10155675644408733_6016307235238445056_n.jpg?_nc_cat=109&_nc_ht=scontent-lhr3-1.xx&oh=b22013e02817f104f05a0df76dea5f6d&oe=5CAFC64E',
   _id: userIds[0],
   name: 'India',
   email: 'i@i',
-  bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   city: 'London',
   location: {
     lat: 51.51051,
@@ -47,9 +48,10 @@ const userData = [{
 }, {
   username: 'lilymarriott',
   _id: userIds[1],
+  profilePicture: 'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/21558774_10209573915095493_1280107147547459076_n.jpg?_nc_cat=106&_nc_ht=scontent-lhr3-1.xx&oh=691ceb499df65cc89fc885324f9fc4a8&oe=5C65334D',
   name: 'Lily',
   email: 'l@l',
-  bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
   city: 'London',
   location: {
     lat: 51.51040,
@@ -67,10 +69,8 @@ mongoose.connect(dbURI, (err, db) => {
     addedBy: userIds[1],
     image: 'https://cdn.shopify.com/s/files/1/2238/4623/products/IGGY-JACKET-FUR-1_1024x.jpg?v=1539258144',
     originallyFrom: 'DE LA VALI',
-    smallImages: ['https://cdn.shopify.com/s/files/1/2238/4623/products/8974_1024x.jpg?v=1539258144', 'https://cdn.shopify.com/s/files/1/2238/4623/products/IGGY-JACKET-FUR-2_1024x.jpg?v=1539258144'],
-    color: ['black'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    type: ['jacket', 'coat'],
+    type: 'jacket',
     // addedBy: {},
     retailPrice: 495,
     newPrice: 120
@@ -79,9 +79,8 @@ mongoose.connect(dbURI, (err, db) => {
     addedBy: userIds[1],
     image: 'https://elizabeth-gage.com/wp-content/uploads/2017/05/Zodiac-templar-band-with-four-leo-motifs-ZBG26427.jpg',
     originallyFrom: 'Elizabeth Gage',
-    color: ['gold'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    type: ['jewellery', 'statement'],
+    type: 'jewellery',
     // addedBy: {},
     retailPrice: 4560,
     newPrice: 800
@@ -90,10 +89,8 @@ mongoose.connect(dbURI, (err, db) => {
     addedBy: userIds[0],
     image: 'http://images.selfridges.com/is/image//selfridges/446-2000084-5306460OXXT1055_BLACKWHITE_ALT10?$PDP_M_ZOOM$&defaultImage=446-2000084-5306460OXXT1055_BLACKWHITE_M',
     originallyFrom: 'Alexander McQueen',
-    smallImages: ['http://images.selfridges.com/is/image//selfridges/446-2000084-5306460OXXT1055_BLACKWHITE_ALT01?$PDP_M_ALL$', 'http://images.selfridges.com/is/image//selfridges/446-2000084-5306460OXXT1055_BLACKWHITE_ALT03?$PDP_M_ALL$'],
-    color: ['black', 'white', 'gold'],
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    type: ['bag', 'statement'],
+    type: 'bag',
     // addedBy: {},
     retailPrice: 2990,
     newPrice: 1200
@@ -102,10 +99,8 @@ mongoose.connect(dbURI, (err, db) => {
     addedBy: userIds[0],
     image: 'https://images.harrods.com/product/rixo/iris-velvet-wrap-dress_000000006062133002.jpg',
     originallyFrom: 'Rixo',
-    smallImages: ['https://images.harrods.com/product/rixo/iris-velvet-wrap-dress_000000006062133002_1.jpg?dwn=500px:568px', 'https://images.harrods.com/product/rixo/iris-velvet-wrap-dress_000000006062133002_f.jpg?dwn=500px:568px'],
-    color: 'blue',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    type: ['dress', 'smart'],
+    type: 'dress',
     // addedBy: {},
     retailPrice: 495,
     newPrice: 125

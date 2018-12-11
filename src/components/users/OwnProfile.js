@@ -73,34 +73,67 @@ class OwnProfile extends React.Component{
   render(){
     const user = this.state.user;
     return(
-      <div className="profile">
-        <h1 className="profileName"> {user && user.name} </h1>
-        <p > Based in: {user && user.city} </p>
-        {
-          ( user && tokenUserId() !== this.props.match.params.id)
-          &&
-          <div>
-            <div>
-              <Link to={`/messages/${user._id}/new`}><button className="button"> Message User </button></Link>
-            </div>
-            {
-              (user && user.followers.includes(decodeToken().sub))
-                ?
-                <button className="button" onClick={this.unfollowUser}> Unfollow </button>
-                :
-                <button className="button" onClick={this.followUser}> Follow </button>
-            }
+      <div className="bioSection profile columns is-multiline is-12">
+        <div className=" pSection" >
+          <div >
+            <img className="profileImage" src={user && user.profilePicture} />
+            <h1 className="profileName"> {user && user.name} </h1>
+            <p > Based in: {user && user.city} </p>
           </div>
-        }
-        <hr />
-        {
-          (user && tokenUserId() === this.props.match.params.id)
+
+          {
+            ( user && tokenUserId() !== this.props.match.params.id)
             &&
-            <div>
-              <Link to={'/purchases'}><button className="button"> Purchase History </button></Link>
+            <div >
+              <div>
+                <Link to={`/messages/${user._id}/new`}><button className="button"> Message User </button></Link>
+              </div>
+              {
+                (user && user.followers.includes(decodeToken().sub))
+                  ?
+                  <button className="button" onClick={this.unfollowUser}> Unfollow </button>
+                  :
+                  <button className="button" onClick={this.followUser}> Follow </button>
+              }
             </div>
-        }
-        <p> {user && user.bio} </p>
+          }
+          <hr />
+          {
+            (user && tokenUserId() === this.props.match.params.id)
+              &&
+              <div>
+                <Link to={'/purchases'}><button className="button"> Purchase History </button></Link>
+              </div>
+          }
+          <div className="bio">
+            <p><strong className="strong"> Bio: </strong>{user && user.bio} </p>
+          </div>
+        </div>
+        <hr />
+        <div className="column is-12 is-multiline orange">
+          <div className="column is-6 green">
+            <div>
+              { user && <strong className="strong"> Followers ({user.followers.length}) </strong>}
+            </div>
+          </div>
+          { (user && user.addedItems )
+          &&
+          <strong className="strong"> Added Items ({user.addedItems.length}): </strong>
+          }
+          <div className="addedItemCards">
+            { (user && user.addedItems)
+              ?
+              user.addedItems.map((item, i) =>
+                <div key={i} className="column is-3" >
+                  <Link to={`/items/${item._id}`}><img src={item.image} /></Link>
+                  <strong className="strong"> {item.name} </strong>
+                  <p> Bought for £{item.retailPrice}, Now £{item.newPrice}. You save £{item.retailPrice - item.newPrice }! </p>
+                </div>
+              )
+              :
+              <p> No items added yet </p> }
+          </div>
+        </div>
         {!this.state.userPosition && !user
           ?
           <p>Loading map...</p>
@@ -110,34 +143,21 @@ class OwnProfile extends React.Component{
             user={ user } />
         }
         <hr />
-        { (user && user.addedItems )
-          &&
-          <p> Added Items ({user.addedItems.length}): </p>
-        }
-        <ul>
-          { (user && user.addedItems)
-            ?
-            user.addedItems.map((item, i) =>
-              <div key={i}>
-                <li> Bought for £{item.retailPrice}, Now £{item.newPrice}. You save £{item.retailPrice - item.newPrice }! </li>
-                <li> {item.name} </li>
-              </div>
-            )
-            :
-            <p> No items added yet </p> }
-        </ul>
-        <hr />
-        <ul>
-          { user && <li> Followers ({user.followers.length}) : </li>}
-          { user && user.followers.map((follower, i) =>
-            <div key={i}>
-              <li> @{follower.username} <span><img className="icon" src={follower.profilePicture} /></span></li>
-            </div>
-          )}
-        </ul>
 
       </div>
     );
   }
 }
 export default OwnProfile;
+
+// { user && user.followers.map((follower, i) =>
+//   <div key={i}>
+//     <li> @{follower.username} <span><img className="icon" src={follower.profilePicture} /></span></li>
+//   </div>
+// )}
+
+// <div>
+//   { (user && user.peopleYouFollow)
+//     &&
+//     <strong className="strong"> Following ({user.poepleYouFollow.length}) </strong>}
+// </div>

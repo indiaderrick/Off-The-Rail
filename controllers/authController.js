@@ -6,7 +6,7 @@ function registerRoute(req, res, next){
   User
     .create(req.body)
     .then(user => {
-      const token = jwt.sign({ username: user.username, sub: user._id, name: user.name, profilePicture: user.profilePicture},
+      const token = jwt.sign({ username: user.username, sub: user._id, name: user.name},
         secret, { expiresIn: '6h' });
       console.log('you sent this....', user);
       res.json({
@@ -22,10 +22,10 @@ function loginRoute(req, res, next){
   User
     .findOne({ email: req.body.email })
     .then(user => {
-      if(!user){
+      if(!user || !user.validatePassword(req.body.password)){
         return res.status(401).json({ message: 'Unauthorized' });
       }
-      const token = jwt.sign({ username: user.username, sub: user._id, name: user.name, profilePicture: user.profilePicture},
+      const token = jwt.sign({ username: user.username, sub: user._id, name: user.name},
         secret, { expiresIn: '6h' });
       res.json({
         message: `Welcome back ${user.name}!`,

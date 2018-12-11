@@ -1,11 +1,12 @@
 #map {
-  height: 400px;
-  width: 30%;
+  height: 200px;
+  margin: 20px 0 160px 0px;
+  width: 70%;
 }
 
 .leaflet-container {
   width: 100%;
-  height: 400px;
+  height: 200px;
 }
 .navbar-item:hover {
   color: black !important;
@@ -19,14 +20,28 @@
       opacity: 0.8;
     }
 }
-.forms{
-  padding: 30px 0 0 80px;
-  margin-top: 40px;
+.addedItemCards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 30px;
 }
+.strong{
+  font-size: 18px;
+}
+.bio{
+  margin-top: 15px;
+}
+
+.forms{
+  padding: 30px 0 0 0;
+  margin-top: 50px;
+}
+
 
 .body{
   font-family: 'Playfair Display', serif;
-  .index, .profile, .messages, .show, .basket, .login, .register, .purchases, .newMessage {
+  .index, .profile, .messages, .show, .basket, .purchases, .newMessage {
     margin: 100px 0 0 60px;
   }
   .button {
@@ -66,7 +81,7 @@
     }
   }
 
-  .welcome-section {
+  .welcome-section, .login{
     height: 600px;
     min-height: 500px;
     display: flex;
@@ -79,17 +94,18 @@
     background-size: cover;
     background-color: none;
     text-align: center;
-    .title{
-      border: solid 3px white;
-      color: white;
-      padding: 6px 8px 6px 8px;
-      margin-bottom: 180px;
-
-    }
 
   }
 }
+.welcome-section{
+  .title{
+    border: solid 3px white;
+    color: white;
+    padding: 6px 8px 6px 8px;
+    margin-bottom: 180px;
 
+  }
+}
 .message-container {
   display: flex;
   min-height: 500px;
@@ -125,7 +141,42 @@
   color: white;
   border-radius: 25px;
   padding:3px;
+  .profileImage{
+    border-radius: 100%;
+    height: 50px;
+    padding: 5px 0 0 5px;
+  }
 }
 .messagesTitle{
   color: #f08b40;
+}
+
+.profileImage {
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+}
+
+.purchaseHistoryButton, .flex{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-right: 180px;
+}
+.bioSection{
+  padding: 70px 0 0 80px;
+  .green{
+  }
+  .orange{
+
+    width: 70vw;
+  }
+
+  .pSection{
+    width: 600px;
+  }
+}
+
+.show{
+  padding: 60px 0 0 300px;
 }

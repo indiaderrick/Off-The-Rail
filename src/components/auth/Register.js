@@ -26,143 +26,145 @@ class Register extends React.Component {
   //change redirect to home later
   render(){
     return(
-      <form className=" forms form-section" onSubmit={this.handleSubmit}>
-        <section className="hero">
-          <div className="hero-body">
-            <div className="container has-text-centered">
-              <div className="column is-4 is-offset-4">
-                <h2 className="title has-text-grey" id="auth-titles">Register</h2>
-                <div className="box">
-                  <figure className="avatar">
-                  </figure>
-                  <form>
-                    <div className="field">
-                      <div className="control has-icons-left">
-                        <input
-                          className="input"
-                          name="name"
-                          placeholder="Name"
-                          onChange={this.handleChange}
-                        />
-                        <span className="icon is-small is-left">
-                          <i className="fas fa-signature"></i>
-                        </span>
+      <section className="register">
+        <form className="forms form-section" onSubmit={this.handleSubmit}>
+          <section className="hero">
+            <div className="hero-body">
+              <div className="container has-text-centered">
+                <div className="column is-4 is-offset-4">
+                  <h2 className="title has-text-grey" id="auth-titles">Register</h2>
+                  <div className="box">
+                    <figure className="avatar">
+                    </figure>
+                    <form>
+                      <div className="field">
+                        <div className="control has-icons-left">
+                          <input
+                            className="input"
+                            name="name"
+                            placeholder="Name"
+                            onChange={this.handleChange}
+                          />
+                          <span className="icon is-small is-left">
+                            <i className="fas fa-signature"></i>
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="field">
-                      <div className="control has-icons-left">
-                        <input
-                          className="input"
-                          name="profilePicture"
-                          placeholder="Profile Picture"
-                          onChange={this.handleChange}
-                        />
-                        <span className="icon is-small is-left">
-                          <i className="far fa-user"></i>
-                        </span>
+                      <div className="field">
+                        <div className="control has-icons-left">
+                          <input
+                            className="input"
+                            name="profilePicture"
+                            placeholder="Profile Picture"
+                            onChange={this.handleChange}
+                          />
+                          <span className="icon is-small is-left">
+                            <i className="far fa-user"></i>
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="field">
-                      <div className="control has-icons-left">
-                        <input
-                          className="input"
-                          name="username"
-                          placeholder="Username"
-                          onChange={this.handleChange}
-                        />
-                        <span className="icon is-small is-left">
-                          <i className="fas fa-signature"></i>
-                        </span>
+                      <div className="field">
+                        <div className="control has-icons-left">
+                          <input
+                            className="input"
+                            name="username"
+                            placeholder="Username"
+                            onChange={this.handleChange}
+                          />
+                          <span className="icon is-small is-left">
+                            <i className="fas fa-signature"></i>
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="field">
-                      <div className="control has-icons-left">
-                        <input
-                          className="input"
-                          name="email"
-                          placeholder="Email"
-                          onChange={this.handleChange}
-                        />
-                        <span className="icon is-small is-left">
-                          <i className="fas fa-envelope"></i>
-                        </span>
+                      <div className="field">
+                        <div className="control has-icons-left">
+                          <input
+                            className="input"
+                            name="email"
+                            placeholder="Email"
+                            onChange={this.handleChange}
+                          />
+                          <span className="icon is-small is-left">
+                            <i className="fas fa-envelope"></i>
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="field">
-                      <div className="control has-icons-left">
-                        <input
-                          className="input"
-                          name="bio"
-                          placeholder="Bio"
-                          onChange={this.handleChange}
-                        />
-                        <span className="icon is-small is-left">
-                          <i className="far fa-comment-dots"></i>
-                        </span>
+                      <div className="field">
+                        <div className="control has-icons-left">
+                          <input
+                            className="input"
+                            name="bio"
+                            placeholder="Bio"
+                            onChange={this.handleChange}
+                          />
+                          <span className="icon is-small is-left">
+                            <i className="far fa-comment-dots"></i>
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="field">
-                      <div className="control has-icons-left">
-                        <input
-                          className="input"
-                          name="location.lat"
-                          placeholder="Your Latitude"
-                          onChange={this.handleChange}
-                        />
-                        <span className="icon is-small is-left">
-                          <i className="fas fa-compass"></i>
-                        </span>
+                      <div className="field">
+                        <div className="control has-icons-left">
+                          <input
+                            className="input"
+                            name="location.lat"
+                            placeholder="Your Latitude"
+                            onChange={this.handleChange}
+                          />
+                          <span className="icon is-small is-left">
+                            <i className="fas fa-compass"></i>
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="field">
-                      <div className="control has-icons-left">
-                        <input
-                          className="input"
-                          name="location.lng"
-                          placeholder="Your Longitude"
-                          onChange={this.handleChange}
-                        />
-                        <span className="icon is-small is-left">
-                          <i className="far fa-compass"></i>
-                        </span>
+                      <div className="field">
+                        <div className="control has-icons-left">
+                          <input
+                            className="input"
+                            name="location.lng"
+                            placeholder="Your Longitude"
+                            onChange={this.handleChange}
+                          />
+                          <span className="icon is-small is-left">
+                            <i className="far fa-compass"></i>
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="field">
-                      <div className="control has-icons-left">
-                        <input
-                          type="password"
-                          className="input"
-                          name="password"
-                          placeholder="Password"
-                          onChange={this.handleChange}
-                        />
-                        <span className="icon is-small is-left">
-                          <i className="fas fa-lock"></i>
-                        </span>
+                      <div className="field">
+                        <div className="control has-icons-left">
+                          <input
+                            type="password"
+                            className="input"
+                            name="password"
+                            placeholder="Password"
+                            onChange={this.handleChange}
+                          />
+                          <span className="icon is-small is-left">
+                            <i className="fas fa-lock"></i>
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="field">
-                      <div className="control has-icons-left">
-                        <input
-                          type="text"
-                          className="input"
-                          name="city"
-                          placeholder="City"
-                          onChange={this.handleChange}
-                        />
-                        <span className="icon is-small is-left">
-                          <i className="fas fa-map-marker-alt"></i>
-                        </span>
+                      <div className="field">
+                        <div className="control has-icons-left">
+                          <input
+                            type="text"
+                            className="input"
+                            name="city"
+                            placeholder="City"
+                            onChange={this.handleChange}
+                          />
+                          <span className="icon is-small is-left">
+                            <i className="fas fa-map-marker-alt"></i>
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <button className="button is-block is-info is-large is-fullwidth">Register</button>
-                  </form>
+                      <button className="button is-block is-info is-large is-fullwidth">Register</button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      </form>
+          </section>
+        </form>
+      </section>
     );
   }
 }
