@@ -51,6 +51,12 @@ export function totalBasketPrice() {
     .reduce((total, itemTotal) => total += itemTotal, 0);
 }
 
+export function totalSavings() {
+  const basket = getBasket();
+  return basket.map(item => (item.retailPrice - item.newPrice))
+    .reduce((total, itemTotal) => total += itemTotal, 0);
+}
+
 export function checkout() {
   axios.post('/api/checkout', getBasket(), authorizationHeader())
     .then(() => {
@@ -62,7 +68,7 @@ export function checkout() {
 //change to purchases
 
 export default {
-  createBasket, getBasket, writeBasket, getItem, addItem,
+  createBasket, totalSavings, getBasket, writeBasket, getItem, addItem,
   updateQuantity, removeItem, totalBasketPrice,
   checkout
 };

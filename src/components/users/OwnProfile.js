@@ -27,17 +27,17 @@ class OwnProfile extends React.Component{
   }
 
   getUser(){
-    if(tokenUserId() === this.props.match.params.id){
-      axios.get(`/api/users/${decodeToken().sub}`)
-        .then(result => {
-          this.setState({ user: result.data }, () => console.log('this is USER', this.state.user));
-        });
-    } else {
+    // if(tokenUserId() === this.props.match.params.id){
+    //   axios.get(`/api/users/${decodeToken().sub}`)
+    //     .then(result => {
+    //       this.setState({ user: result.data }, () => console.log('this is USER', this.state.user));
+    //     });
+    // } else {
       axios.get(`/api/users/${this.props.match.params.id}`)
-        .then(result => {
-          this.setState({ user: result.data });
+          .then(result => {
+            this.setState({ user: result.data });
         });
-    }
+    // }
   }
 
   componentDidUpdate(){
@@ -115,23 +115,28 @@ class OwnProfile extends React.Component{
             <div>
               { user && <strong className="strong"> Followers ({user.followers.length}) </strong>}
             </div>
+            <div>
+              { user && <strong className="strong"> Following ({user.peopleYouFollow.length}) </strong>}
+            </div>
           </div>
           { (user && user.addedItems )
           &&
-          <strong className="strong"> Added Items ({user.addedItems.length}): </strong>
+          <strong className="strong blue"> Added Items ({user.addedItems.length}): </strong>
           }
-          <div className="addedItemCards">
-            { (user && user.addedItems)
-              ?
-              user.addedItems.map((item, i) =>
-                <div key={i} className="column is-3" >
-                  <Link to={`/items/${item._id}`}><img src={item.image} /></Link>
-                  <strong className="strong"> {item.name} </strong>
-                  <p> Bought for £{item.retailPrice}, Now £{item.newPrice}. You save £{item.retailPrice - item.newPrice }! </p>
-                </div>
-              )
-              :
-              <p> No items added yet </p> }
+          <div className="container">
+            <div className="addedItemCards">
+              { (user && user.addedItems)
+                ?
+                user.addedItems.map((item, i) =>
+                  <div key={i} className="column is-3" >
+                    <Link to={`/items/${item._id}`}><img src={item.image} /></Link>
+                    <strong className="strong"> {item.name} </strong>
+                    <p> Bought for £{item.retailPrice},<strong> Now £{item.newPrice}</strong>. You save £{item.retailPrice - item.newPrice }! </p>
+                  </div>
+                )
+                :
+                <p>  </p> }
+            </div>
           </div>
         </div>
         {!this.state.userPosition && !user

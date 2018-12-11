@@ -55,7 +55,7 @@ class Messages extends React.Component{
     const messages = this.state.messages;
     return(
       <main className="messages">
-        <h1 className="title is-2 messagesTitle">Messages</h1>
+        <h1 className="title is-2 messagesTitle">Select a conversation:</h1>
 
         <div className="message-container">
 

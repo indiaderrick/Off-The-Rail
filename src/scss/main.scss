@@ -1,6 +1,6 @@
 #map {
   height: 200px;
-  margin: 20px 0 160px 0px;
+  margin: 40px 0 160px 130px;
   width: 70%;
 }
 
@@ -9,6 +9,9 @@
   height: 200px;
 }
 .navbar-item:hover {
+  color: black !important;
+}
+.footerText{
   color: black !important;
 }
 
@@ -20,7 +23,10 @@
       opacity: 0.8;
     }
 }
-.addedItemCards{
+// .itemContainer{
+//   background-color: pink;
+// }
+.addedItemCards, .eachItem {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -41,8 +47,9 @@
 
 .body{
   font-family: 'Playfair Display', serif;
-  .index, .profile, .messages, .show, .basket, .purchases, .newMessage {
+  .index, .profile, .messages, .basket, .purchases, .newMessage {
     margin: 100px 0 0 60px;
+    min-height: 500px;
   }
   .button {
     background-color: #f08b40;
@@ -83,7 +90,7 @@
 
   .welcome-section, .login{
     height: 600px;
-    min-height: 500px;
+    min-height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -165,10 +172,7 @@
 }
 .bioSection{
   padding: 70px 0 0 80px;
-  .green{
-  }
   .orange{
-
     width: 70vw;
   }
 
@@ -178,5 +182,29 @@
 }
 
 .show{
-  padding: 60px 0 0 300px;
+  padding: 120px 0 0 200px;
+}
+
+.blue {
+  background-image: linear-gradient(to right, rgba(236, 213, 247, 0.7) 0%, rgba(236, 213, 247, 0.7) 100%);
+  background-position: 0 0.94em;
+  background-repeat: repeat-x;
+  background-size: 1px 10px;
+  padding-bottom: 8px;
+}
+
+.purchaseTitle {
+  margin-top: 60px;
+}
+
+.newMessageTitle, .newMessageBox{
+  padding: 40px 0 25px;
+  font-size: 25px;
+}
+
+.purchases{
+  font-size: 18px;
+}
+.purchaseHistoryOrange{
+  color: #f08b40;
 }

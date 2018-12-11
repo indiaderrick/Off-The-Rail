@@ -50,6 +50,9 @@ class Basket extends React.Component{
               <p className="column">Total price: £{basketLib.totalBasketPrice()}</p>
             </div>
             <div className="column">
+              <strong className="column strong">TOTAL SAVINGS: £{basketLib.totalSavings()}</strong>
+            </div>
+            <div className="column">
               <button className="button buttonColor" onClick={this.checkout}>Check out</button>
             </div>
           </section>

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './components/Home';
 import ItemIndex from './components/items/ItemIndex';
 import ItemShow from './components/items/ItemShow';
@@ -41,6 +42,7 @@ class App extends React.Component {
               <Route path='/items/:id' component={ItemShow}/>
             </Switch>
           </main>
+          <Footer />
         </div>
       </BrowserRouter>
     );

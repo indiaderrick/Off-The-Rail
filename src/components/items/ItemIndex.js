@@ -38,33 +38,35 @@ class ItemIndex extends React.Component{
   render(){
     return(
       <section className="index container columns is-multiline">
-        <div className="column is-12-desktop">
-          <form>
-            <input
-              placeholder="Search by name, designer ..."
-              ref={input => this.search = input}
-              onChange={this.handleInputChange}
-              className="input subtitle is-size-6"
-            />
-          </form>
-        </div>
 
         <div className="centered-container">
           <hr/>
           <div>
             {this.state.query === ''
               ?
-              <h1 className="search-title is-size-4">SHOP DESIGNER ITEMS</h1>
+              <h1 className="search-title is-size-3">SHOP DESIGNER ITEMS</h1>
               :
               <h1 className="search-title is-size-4">Search Results</h1>}
           </div>
-          <div className="eachItem">
-            {this.state.filteredItems &&
+          <div className="column is-12-desktop">
+            <form>
+              <input
+                placeholder="Search by name, designer ..."
+                ref={input => this.search = input}
+                onChange={this.handleInputChange}
+                className="input subtitle is-size-6"
+              />
+            </form>
+          </div>
+          <div className="container itemContainer">
+            <div className="eachItem">
+              {this.state.filteredItems &&
               this.state.filteredItems.map( filteredItem =>
                 <div className="column is-4-desktop" key={filteredItem._id}>
                   <Link to={`/items/${filteredItem._id}`} ><img src={filteredItem.image} /> </Link>
                 </div>
               )}
+            </div>
           </div>
 
         </div>

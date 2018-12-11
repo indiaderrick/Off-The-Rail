@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import TextColumn from './TextColumn';
-import { authorizationHeader, isAuthenticated } from '../../lib/auth';
+import { authorizationHeader, isAuthenticated, tokenUserId } from '../../lib/auth';
 import { addItem } from '../../lib/basket';
 import { handleChange } from '../../lib/common';
 // import { messageUserOfItem } from '../../lib/messages';
@@ -53,16 +53,27 @@ class ItemShow extends React.Component{
             <div className="column is-6-desktop">
               <TextColumn item={item} handleDelete={this.handleDelete}/>
             </div>
+
             <div className="column is-4">
-              {isAuthenticated() && <button className="button" onClick={this.handleClick}>Add to basket</button>}
+              { (isAuthenticated() && tokenUserId() !== item.addedBy._id)
+                &&
+                <button className="button" onClick={this.handleClick}>Add to basket</button>}
             </div>
+
             <div className="column is-4">
-              { isAuthenticated() && <Link to={`/messages/${item.addedBy._id}/new`}><button className="button" >Message User</button></Link> }
+              { (isAuthenticated() && tokenUserId() !== item.addedBy._id)
+                &&
+                <Link to={`/messages/${item.addedBy._id}/new`}><button className="button" >Message User</button></Link> }
             </div>
           </div>
           :
           <p> Please wait, page loading... </p>
         }
+        <div className="column is-4">
+          { (item && isAuthenticated() && tokenUserId() === item.addedBy._id)
+            &&
+            <strong>This is your item!</strong>}
+        </div>
       </section>
     );
   }

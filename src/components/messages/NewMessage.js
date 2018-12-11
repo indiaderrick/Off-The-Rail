@@ -34,7 +34,8 @@ class NewMessage extends React.Component{
     const user = this.state.user
     return(
       <section className="newMessage container">
-        <h1> MESSAGE { user && user.name.toUpperCase()}</h1>
+        <p className="newMessageTitle"><strong> MESSAGE { user && user.name.toUpperCase()}</strong>, or check your Inbox to see if you already have a conversation with her!</p>
+
         <div className="media-content">
           <div className="field">
             <p className="control">
@@ -43,7 +44,7 @@ class NewMessage extends React.Component{
           </div>
 
           <nav className="level">
-            <div className="level-left">
+            <div className="level-left newMessageBox">
               <div className="level-item" onClick={this.createNewMessage}>
                 <a className="button" >Submit</a>
               </div>
