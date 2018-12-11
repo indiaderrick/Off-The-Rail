@@ -9,7 +9,7 @@ class ItemIndex extends React.Component{
     this.state={
       query: ''
     };
-    this.handleInputChange = handleChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     console.log('component created');
   }
 
@@ -34,35 +34,39 @@ class ItemIndex extends React.Component{
     this.setState({ filteredItems: filteredItems });
   }
 
-
   render(){
     return(
-      <section className="index container columns is-multiline">
+      <div className="container indexContainer has-items-centered">
+        <section className="columns is-multiline">
+          <div className=" has-text-centered">
+            <hr/>
+            <div>
+              {this.state.query === ''
+                ?
+                <div>
+                  <h1 className="search-title is-size-2">SHOP DESIGNER ITEMS</h1>
+                  <h1 className="search-title is-size-7">T I M E L E S S ✧  A N D ✧  A F F O R D A B L E </h1>
+                </div>
+                :
+                <h1 className="search-title is-size-4">Search Results</h1>}
+            </div>
 
-        <div className="centered-container">
-          <hr/>
-          <div>
-            {this.state.query === ''
-              ?
-              <h1 className="search-title is-size-3">SHOP DESIGNER ITEMS</h1>
-              :
-              <h1 className="search-title is-size-4">Search Results</h1>}
-          </div>
-          <div className="column is-12-desktop">
-            <form>
-              <input
-                placeholder="Search by name, designer ..."
-                ref={input => this.search = input}
-                onChange={this.handleInputChange}
-                className="input subtitle is-size-6"
-              />
-            </form>
-          </div>
-          <div className="container itemContainer">
-            <div className="eachItem">
-              {this.state.filteredItems &&
+            <div className="column is-12-desktop">
+              <form>
+                <input
+                  placeholder="Search by name, designer ..."
+                  ref={input => this.search = input}
+                  onChange={this.handleInputChange}
+                  className="input subtitle is-size-6 has-text-centered"
+                />
+              </form>
+            </div>
+
+            <div className="container itemContainer">
+              <div className="eachItem">
+                {this.state.filteredItems &&
               this.state.filteredItems.map( filteredItem =>
-                <div className="column is-4-desktop" key={filteredItem._id}>
+                <div className="column is-4-desktop" key={filteredItem.name}>
                   <Link to={`/items/${filteredItem._id}`} ><img src={filteredItem.image} /> </Link>
                 </div>
               )}
@@ -70,18 +74,10 @@ class ItemIndex extends React.Component{
           </div>
 
         </div>
-
       </section>
+      </div>
     );
   }
 }
 
 export default ItemIndex;
-
-// <div className="eachItem">
-//   {this.state.items && this.state.items.map(item =>
-//     <div className="column is-4-desktop" key={item._id}>
-//       <Link to={`/items/${item._id}`} ><img src={item.image} /> </Link>
-//     </div>
-//   )}
-// </div>

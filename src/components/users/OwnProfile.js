@@ -33,10 +33,10 @@ class OwnProfile extends React.Component{
     //       this.setState({ user: result.data }, () => console.log('this is USER', this.state.user));
     //     });
     // } else {
-      axios.get(`/api/users/${this.props.match.params.id}`)
-          .then(result => {
-            this.setState({ user: result.data });
-        });
+    axios.get(`/api/users/${this.props.match.params.id}`)
+      .then(result => {
+        this.setState({ user: result.data });
+      });
     // }
   }
 

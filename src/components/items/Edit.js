@@ -33,11 +33,11 @@ class ItemEdit extends React.Component {
 
   render() {
     return(
-      <section className="forms columns is-multiline is-12-desktop">
-        <div className="column is-12-desktop">
+      <section className="forms container">
+        <div className="column is-6-desktop has-text-centered">
           <h2 className="title">Edit Item</h2>
         </div>
-        <div className="column is-8-desktop">
+        <div className="column is-6-desktop box">
           <ItemForm handleChange = {this.handleChange} handleSubmit = {this.handleSubmit}/>
         </div>
       </section>

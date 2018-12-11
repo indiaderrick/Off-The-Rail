@@ -44,6 +44,9 @@ class ItemShow extends React.Component{
 
     return(
       <section className="container show">
+        <div className="column is-12">
+          <p className="itemName"> {item && item.name.toUpperCase()} </p>
+        </div>
         {item
           ?
           <div className="columns is-multiline is-12-desktop">

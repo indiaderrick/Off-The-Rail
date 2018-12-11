@@ -23,9 +23,14 @@
       opacity: 0.8;
     }
 }
-// .itemContainer{
-//   background-color: pink;
-// }
+
+.indexContainer{
+  padding: 110px 0 100px 0;
+}
+.itemName{
+  font-size: 25px;
+  padding-bottom: 10px;
+}
 .addedItemCards, .eachItem {
   display: flex;
   flex-wrap: wrap;

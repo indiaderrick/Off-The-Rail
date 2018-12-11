@@ -10,7 +10,7 @@ class Home extends React.Component{
     return(
       <div className="welcome-section columns is-multiline">
         <div>
-          <p className="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus maxime, reprehenderit nesciunt deleniti eveniet a magni. </p>
+          <p className="intro">OFF THE RAIL. Buy and sell designer items at prices your pocket can provide ✦ </p>
         </div>
         <Link to={'/items'}><div className="title">
           <p>Start</p>
