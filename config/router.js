@@ -23,6 +23,8 @@ router.route('/users/:userId')
   .get(userController.profileShow);
   // .put(userController.editUser);
 
+router.route('/users/:userId/getFollowing')
+  .get(secureRoute, userController.followingColumn);
 
 router.route('/checkout').post(secureRoute, purchaseController.createRoute);
 router.route('/purchases').get(secureRoute, purchaseController.userIndexRoute);

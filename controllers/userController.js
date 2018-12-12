@@ -11,6 +11,17 @@ function profileShow(req, res, next) {
     .catch(next);
 }
 
+function followingColumn(req, res, next) {
+  console.log('this is req.params', req.params);
+  User
+    .findById(req.params.userId)
+    .populate('peopleYouFollow')
+    .then(user => {
+      res.json(user);
+    })
+    .catch(next);
+}
+
 // function editUser(req, res, next){
 //   User
 //     .findById(req.params.userId)
@@ -61,6 +72,7 @@ function unfollowRoute(req, res, next) {
 module.exports = {
   profileShow: profileShow,
   followRoute: followRoute,
-  unfollowRoute: unfollowRoute
+  unfollowRoute: unfollowRoute,
+  followingColumn: followingColumn
   // editUser: editUser
 };

@@ -67,37 +67,41 @@ class OwnProfile extends React.Component{
     const user = this.state.user;
     return(
       <div className="bioSection profile columns is-multiline is-12">
-        <div className=" pSection" >
-          <div >
-            <img className="profileImage" src={user && user.profilePicture} />
-            <h1 className="profileName"> {user && user.name} </h1>
-            <p > Based in: {user && user.city} </p>
-          </div>
-
-          {
-            ( user && tokenUserId() !== this.props.match.params.id)
-            &&
-            <div className="columns">
-              <div className="column is-6">
-                <Link to={`/messages/${user._id}/new`}><button className="button"> Message User </button></Link>
-                {
-                  (user && user.followers.includes(decodeToken().sub))
-                  ?
-                  <button className="button" onClick={this.unfollowUser}> Unfollow </button>
-                  :
-                  <button className="button" onClick={this.followUser}> Follow </button>
-                }
-              </div>
-              <div className="column is-6">
+        <div className="pSection" >
+          <div className="details-container">
+            <div >
+              <img className="profileImage" src={user && user.profilePicture} />
+              <h1 className="profileName"> {user && user.name} </h1>
+              <p > Based in: {user && user.city} </p>
+            </div>
+            <div className="followersContainer">
               <div>
-                { user && <strong className="strong"> Followers ({user.followers.length}) </strong>}
+                { user && <strong className="strong"> Followers   ({user.followers.length}) </strong>}
               </div>
               <div>
                 { user && <strong className="strong"> Following ({user.peopleYouFollow.length}) </strong>}
               </div>
-              </div>
             </div>
-          }
+          </div>
+          <div className="columns">
+            {
+              ( user && tokenUserId() !== this.props.match.params.id)
+            &&
+            <div>
+              <div className="column is-6">
+                <Link to={`/messages/${user._id}/new`}><button className="button"> Message User </button></Link>
+                {
+                  (user && user.followers.includes(decodeToken().sub))
+                    ?
+                    <button className="button" onClick={this.unfollowUser}> Unfollow </button>
+                    :
+                    <button className="button" onClick={this.followUser}> Follow </button>
+                }
+              </div>
+
+            </div>
+            }
+          </div>
           <hr />
           {
             (user && tokenUserId() === this.props.match.params.id)
