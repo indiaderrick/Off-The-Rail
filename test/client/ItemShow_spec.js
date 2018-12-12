@@ -41,15 +41,15 @@ describe('ItemShow', () => {
     done();
   });
 
-  // it('should show an input with quantity 0 by default', done => {
-  //   const component = shallow(<ItemShow match={match}/>);
-  //   component.setState({ burger: testData });
-  //   expect(component.find('.field label').text()).to.eq('Quantity');
-  //   expect(component.find('.field input').length).to.eq(1);
-  //   expect(component.find('.field input').props().value).to.eq(0);
-  //   done();
-  // });
-  //
+  it('should show an input with quantity 0 by default', done => {
+    const component = shallow(<ItemShow match={match}/>);
+    component.setState({ burger: testData });
+    expect(component.find('.field label').text()).to.eq('Quantity');
+    expect(component.find('.field input').length).to.eq(1);
+    expect(component.find('.field input').props().value).to.eq(0);
+    done();
+  });
+
   // it('should redirect to the /basket page after "Add to basket" click', done => {
   //   // There's no router, which means no this.props.history! We'll have to simulate
   //   // it by handing in an empty object to props.history and testing that.
