@@ -22,6 +22,30 @@ function TextColumn({ item, handleDelete, saveForLater, unsave }) {
         </div>
       </div>
       {
+        isAuthenticated()
+          ?
+          <div>
+            {
+              (tokenUserId() !== item.addedBy._id)
+          &&
+          <div>
+            {
+              (item && item.savedForLater.includes(tokenUserId()))
+                ?
+                <button className="button heart" onClick={unsave}> <i className="fas fa-heart"></i> </button>
+                :
+                <button className="button heart" onClick={saveForLater}> <i className="far fa-heart"></i> </button>
+            }
+          </div>
+            }
+          </div>
+          :
+          <div>
+            <hr />
+            <p><Link to={'/login'}> LOG IN </Link>to see more </p>
+          </div>
+      }
+      {
         (tokenUserId() === item.addedBy._id)
         &&
         <div>
@@ -33,19 +57,6 @@ function TextColumn({ item, handleDelete, saveForLater, unsave }) {
         </div>
       }
       <hr></hr>
-      {
-        (tokenUserId() !== item.addedBy._id)
-        &&
-        <div>
-          {
-            (item && item.savedForLater.includes(tokenUserId()))
-              ?
-              <button className="button heart" onClick={unsave}> <i className="fas fa-heart"></i> </button>
-              :
-              <button className="button heart" onClick={saveForLater}> <i className="far fa-heart"></i> </button>
-          }
-        </div>
-      }
     </article>
   );
 }

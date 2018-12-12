@@ -31,7 +31,7 @@ class PurchaseHistory extends React.Component {
               purchases.map(purchase =>
                 <div key={purchase._id} style={{ display: 'flex', justifyContent: 'space-around' }}>
                   <img className="image is-48x48" src={purchase.item.image} /><strong className="column purchaseHistoryOrange" >{purchase.item.name}</strong>
-                  <p className="column" >£{purchase.item.newPrice}, but at least you saved £{purchase.item.retailPrice - purchase.item.newPrice}</p>
+                  <p className="column" >£{purchase.item.newPrice}, but at least <strong> you saved £{purchase.item.retailPrice - purchase.item.newPrice}</strong></p>
                   <p className="column" >{moment(purchase.createdAt).fromNow()}</p>
                 </div>
               )

@@ -54,7 +54,7 @@ class Login extends React.Component {
                         </span>
                       </div>
                     </div>
-                    <button className="button is-block is-info is-large is-fullwidth">Login</button>
+                    <button className="button is-block is-large is-fullwidth">Login</button>
 
                   </div>
                 </div>

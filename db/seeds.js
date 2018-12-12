@@ -8,7 +8,8 @@ const Message = require('../models/message');
 
 const userIds = [
   '5be9bd11c7f4b190431791a3',
-  '5be9bd11c7f4b190431791a4'
+  '5be9bd11c7f4b190431791a4',
+  '5be9bd11c7f4b190431791a6'
 ];
 
 const messageData = [
@@ -59,6 +60,21 @@ const userData = [{
   },
   password: 'pass',
   passwordConfirmation: 'pass'
+},
+{
+  username: 'jessBS',
+  _id: userIds[2],
+  profilePicture: 'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/14708203_10210053791634652_3150554286181643486_n.jpg?_nc_cat=103&_nc_ht=scontent-lhr3-1.xx&oh=eaf273f27217773f6e98afc502c466d6&oe=5C644D38',
+  name: 'Jess B-S',
+  email: 'j@j',
+  bio: 'Hello my name is JESS and im a journalist and have lovely curly hair ☼ and im sooooo bohoCHIC',
+  city: 'London',
+  location: {
+    lat: 51.51067,
+    lng: -0.14988
+  },
+  password: 'pass',
+  passwordConfirmation: 'pass'
 }];
 
 mongoose.connect(dbURI, (err, db) => {
@@ -78,12 +94,39 @@ mongoose.connect(dbURI, (err, db) => {
   {
     image: 'https://cdn.shopify.com/s/files/1/2238/4623/products/DeLaVali-7315_1024x.JPG?v=1537794026',
     name: 'Tangerine Yellow Magnolia Dress',
-    addedBy: userIds[1],
+    addedBy: userIds[2],
     originallyFrom: 'De La Vali',
     description: 'This Magnolia Tangerine dress is a real head turner. It’s billowing trail follows her every step, alluring all that chance upon her. Inspired by our beloved Spanish roots the flowing Tangerine satin oriental dress is made for dancing and getting caught in the heat of passion.',
     retailPrice: 595,
     newPrice: 320
 
+  },
+  {
+    image: 'https://www.rixo.co.uk/wp-content/uploads/2018/11/ROSE-REDTIGER.jpg',
+    name: 'Rose – Red Tiger',
+    addedBy: userIds[2],
+    originallyFrom: 'Rixo',
+    description: 'Our classic Rose dress with a roaring twist.  Fierce, figure-hugging and backless, she falls to floor with a ruffle slit in the centre revealing  just the right amount of leg. Whether your dress her up with some killer heels or keep it casual with trainers it is bound to be a blazing success',
+    retailPrice: 595,
+    newPrice: 300
+  },
+  {
+    image: 'https://www.alexandermcqueen.com/63/41/41822758wv_10_g_r.jpg',
+    name: 'Beetle Coat',
+    addedBy: userIds[2],
+    originallyFrom: 'Alexander McQueen',
+    description: 'Our classic Rose dress with a roaring twist.  Fierce, figure-hugging and backless, she falls to floor with a ruffle slit in the centre revealing  just the right amount of leg. Whether your dress her up with some killer heels or keep it casual with trainers it is bound to be a blazing success',
+    retailPrice: 3800,
+    newPrice: 1200
+  },
+  {
+    image: 'https://www.alexandermcqueen.com/63/50/50220588wb_10_g_a.jpg',
+    name: 'Black Leather Resin Suit',
+    addedBy: userIds[2],
+    originallyFrom: 'Alexander McQueen',
+    description: 'Our classic Rose dress with a roaring twist.  Fierce, figure-hugging and backless, she falls to floor with a ruffle slit in the centre revealing  just the right amount of leg. Whether your dress her up with some killer heels or keep it casual with trainers it is bound to be a blazing success',
+    retailPrice: 9800,
+    newPrice: 2200
   },
   {
     image: 'https://cdn.shopify.com/s/files/1/2238/4623/products/H1B9844_1024x.jpg?v=1537345756',
@@ -95,6 +138,14 @@ mongoose.connect(dbURI, (err, db) => {
     newPrice: 495
 
   },
+  {name: 'Antonia ruby-crystal embellished bag',
+    addedBy: userIds[0],
+    image: 'https://assetsprx.matchesfashion.com/img/product/1385/1236902_3.jpg',
+    originallyFrom: 'Shripms',
+    description: 'Shrimps’ unfailing eye for playful details is succinctly translated into its signature Antonia bag, which is reimagined in gemstone shades for the new season – this red iteration is inspired by rubies',
+    retailPrice: 680,
+    newPrice: 240
+  },
   {
     name: 'Zita Faux Fur Jacket',
     addedBy: userIds[1],
@@ -105,14 +156,6 @@ mongoose.connect(dbURI, (err, db) => {
     // addedBy: {},
     retailPrice: 495,
     newPrice: 120
-  },
-  {name: 'Antonia ruby-crystal embellished bag',
-    addedBy: userIds[0],
-    image: 'https://assetsprx.matchesfashion.com/img/product/1385/1236902_3.jpg',
-    originallyFrom: 'Shripms',
-    description: 'Shrimps’ unfailing eye for playful details is succinctly translated into its signature Antonia bag, which is reimagined in gemstone shades for the new season – this red iteration is inspired by rubies',
-    retailPrice: 680,
-    newPrice: 240
   },
   {
     image: 'https://images.harrods.com/product/dolce-and-gabbana/lori-winged-heart-pumps-105_000000006090118007.jpg?dwn=500px:568px',
