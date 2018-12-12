@@ -72,10 +72,12 @@ class ItemIndex extends React.Component{
                 />
               </form>
             </div>
-            <div className="column is-12 is-size-4 indexFollowingTitle">
-              <p> Keep up to date with your favourite sellers: </p>
-            </div>
-
+            { (userWithFollowing && userWithFollowing.peopleYouFollow.length !== 0)
+              &&
+              <div className="column is-12 is-size-4 indexFollowingTitle">
+                <p> Keep up to date with your favourite sellers: </p>
+              </div>
+            }
             <div className="column followingIndex is-12">
               {userWithFollowing &&
             userWithFollowing.peopleYouFollow.map( user =>
