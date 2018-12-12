@@ -29,15 +29,15 @@ sinon.stub(axios, 'get')
 // Create a mocha test suite, a collection of test cases:
 describe('ItemShow', () => {
   it('should show the item name and image', done => {
-    const component = mount(<ItemShow match={match}/>);
+    const component = shallow(<ItemShow match={match}/>);
     // Just fake the fact that we have a burger on this.state:
     component.setState({ item: testData });
+    console.log(component.debug());
     // NOTE: We can console.log the HTML our browser has produced from the component!
-    console.log(component.html());
     // We can now write our assertions. These must all be true
     // for the test case to pass.
     // expect(component.find('img').props().src).to.eq(testData.image);
-    expect(component.find('p').text()).to.eq(testData.name.toUpperCase());
+    expect(component.find('.itemName').text()).to.contain(testData.name.toUpperCase());
     done();
   });
 
