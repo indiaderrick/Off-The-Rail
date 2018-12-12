@@ -77,17 +77,25 @@ class OwnProfile extends React.Component{
           {
             ( user && tokenUserId() !== this.props.match.params.id)
             &&
-            <div >
-              <div>
+            <div className="columns">
+              <div className="column is-6">
                 <Link to={`/messages/${user._id}/new`}><button className="button"> Message User </button></Link>
-              </div>
-              {
-                (user && user.followers.includes(decodeToken().sub))
+                {
+                  (user && user.followers.includes(decodeToken().sub))
                   ?
                   <button className="button" onClick={this.unfollowUser}> Unfollow </button>
                   :
                   <button className="button" onClick={this.followUser}> Follow </button>
-              }
+                }
+              </div>
+              <div className="column is-6">
+              <div>
+                { user && <strong className="strong"> Followers ({user.followers.length}) </strong>}
+              </div>
+              <div>
+                { user && <strong className="strong"> Following ({user.peopleYouFollow.length}) </strong>}
+              </div>
+              </div>
             </div>
           }
           <hr />
@@ -104,14 +112,7 @@ class OwnProfile extends React.Component{
         </div>
         <hr />
         <div className="column is-12 is-multiline orange">
-          <div className="column is-6 green">
-            <div>
-              { user && <strong className="strong"> Followers ({user.followers.length}) </strong>}
-            </div>
-            <div>
-              { user && <strong className="strong"> Following ({user.peopleYouFollow.length}) </strong>}
-            </div>
-          </div>
+
           { (user && user.addedItems )
           &&
           <strong className="strong blue"> Added Items ({user.addedItems.length}): </strong>
