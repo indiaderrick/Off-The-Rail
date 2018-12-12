@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import {isAuthenticated, deleteToken, tokenUserId } from '../lib/auth';
+import { getBasket } from '../lib/basket';
 
 class Header extends React.Component {
   constructor(props){
@@ -26,7 +27,7 @@ class Header extends React.Component {
         <div className="navbar-end">
           <Link className="navbar-item" to={'/items'}>Explore</Link>
           {isAuthenticated() && <Link className="navbar-item" to={`/users/${tokenUserId()}`}> Profile </Link>}
-          {isAuthenticated() && <Link className="navbar-item" to={'/basket'}> Basket </Link>}
+          {isAuthenticated() && <Link className="navbar-item" to={'/basket'}> <i className="fas fa-shopping-basket basketIcon"></i>  ({getBasket().length}) </Link>}
           {isAuthenticated() && <Link className="navbar-item" to={'/messages'}> Messages </Link>}
           {isAuthenticated() && <Link className="navbar-item" to={'/items/new'}>Add an item</Link>}
           {!isAuthenticated() && <Link className="navbar-item" to={'/login'}>Log In</Link>}

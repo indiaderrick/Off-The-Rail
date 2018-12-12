@@ -8,7 +8,7 @@ const UserMap = ({ userPosition, user }) => {
     <div id="map">
       {
         user &&
-        <Map center={  user.location } zoom={14}>
+        <Map center={  user.location } zoom={12}>
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png' />

@@ -36,6 +36,12 @@ userSchema.virtual('peopleYouFollow', {
   foreignField: 'followers'
 });
 
+userSchema.virtual('thingsILike', {
+  ref: 'Item',
+  localField: '_id',
+  foreignField: 'savedForLater'
+});
+
 userSchema.set('toJSON', {
   virtuals: true
 });

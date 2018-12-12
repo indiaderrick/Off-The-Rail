@@ -12,12 +12,22 @@ function MessageBox({ message, handleDelete }) {
       </figure>
       <div className="media-content">
         <div className="content">
-          <p>
-            <strong>{message.from.username}</strong>
-            <br />
-            {message.content}
-            <br />
-            <small>{moment(message.createdAt).fromNow()}</small>
+          <p>{
+            (message && tokenUserId() === message.from._id)
+              ?
+              <div>
+                <strong className="messageFrom">{message.from.username}</strong>
+                <br />
+              </div>
+              :
+              <div>
+                <strong className="fromThem">{message.from.username}</strong>
+                <br />
+              </div>
+          }
+          {message.content}
+          <br />
+          <small>{moment(message.createdAt).fromNow()}</small>
           </p>
         </div>
       </div>

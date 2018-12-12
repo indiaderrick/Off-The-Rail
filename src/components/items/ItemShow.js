@@ -58,7 +58,7 @@ class ItemShow extends React.Component{
     if(savedForLater.includes(currentUserId)){
       savedForLater.splice(savedForLater.indexOf(currentUserId), 1);
       this.setState({ savedForLater: savedForLater});
-      axios.delete(`/api/items/${this.state.user._id}/saveForLater`, authorizationHeader());
+      axios.delete(`/api/items/${this.state.item._id}/saveForLater`, authorizationHeader());
     }
   }
 

@@ -34,11 +34,17 @@ function TextColumn({ item, handleDelete, saveForLater, unsave }) {
       }
       <hr></hr>
       {
-        (item && item.savedForLater.includes(tokenUserId()))
-          ?
-          <button className="button heart" onClick={unsave}> <i className="fas fa-heart"></i> </button>
-          :
-          <button className="button heart" onClick={saveForLater}> <i className="far fa-heart"></i> </button>
+        (tokenUserId() !== item.addedBy._id)
+        &&
+        <div>
+          {
+            (item && item.savedForLater.includes(tokenUserId()))
+              ?
+              <button className="button heart" onClick={unsave}> <i className="fas fa-heart"></i> </button>
+              :
+              <button className="button heart" onClick={saveForLater}> <i className="far fa-heart"></i> </button>
+          }
+        </div>
       }
     </article>
   );

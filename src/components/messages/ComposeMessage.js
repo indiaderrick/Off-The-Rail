@@ -11,14 +11,14 @@ function ComposeMessage(props){
 
         <div className="field">
           <p className="control">
-            <textarea className="textarea" placeholder="Write a response..." name="newMessage" value={props.newMessage || ''} onChange={props.handleChange} disabled={!props.withWhichUserId}/>
+            <textarea className="textarea messageTextarea" placeholder="Write a response..." name="newMessage" value={props.newMessage || ''} onChange={props.handleChange} disabled={!props.withWhichUserId}/>
           </p>
         </div>
 
         <nav className="level">
           <div className="level-left">
             <div className="level-item" onClick={props.handleSubmit}>
-              <button className="button" disabled={!props.withWhichUserId}>Submit</button>
+              <button className="button submitMessage" disabled={!props.withWhichUserId}>Submit</button>
             </div>
           </div>
         </nav>

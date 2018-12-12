@@ -27,24 +27,17 @@ class OwnProfile extends React.Component{
   }
 
   getUser(){
-    // if(tokenUserId() === this.props.match.params.id){
-    //   axios.get(`/api/users/${decodeToken().sub}`)
-    //     .then(result => {
-    //       this.setState({ user: result.data }, () => console.log('this is USER', this.state.user));
-    //     });
-    // } else {
     axios.get(`/api/users/${this.props.match.params.id}`)
       .then(result => {
-        this.setState({ user: result.data });
+        this.setState({ user: result.data }, () => console.log('this is Otheruser', this.state.user));
       });
-    // }
   }
 
   componentDidUpdate(){
     if(tokenUserId() === this.props.match.params.id){
       axios.get(`/api/users/${decodeToken().sub}`)
         .then(result => {
-          this.setState({ user: result.data });
+          this.setState({ user: result.data }, () => console.log('this is user', this.state.user));
         });
     }
   }
@@ -147,22 +140,50 @@ class OwnProfile extends React.Component{
             userPosition={this.state.userPosition}
             user={ user } />
         }
-        <hr />
-
+        <div className="container">
+          {
+            (user && tokenUserId() === this.props.match.params.id)
+              ?
+              <div>
+                <hr />
+                <strong className="blue likesSection"> ♡ YOUR SAVED FOR LATER ITEMS ♡ </strong>
+              </div>
+              :
+              <div>
+                <hr />
+                {user && <strong className="blue likesSection"> ♡ LIKED BY {user. name.toUpperCase()} ♡ </strong>}
+              </div>
+          }
+          <div className="addedItemCards likedPhotos">
+            { (user && user.thingsILike)
+              ?
+              user.thingsILike.map((item, i) =>
+                <div key={i} className="column is-3" >
+                  <Link to={`/items/${item._id}`}><img src={item.image} /></Link>
+                  <strong className="strong"> {item.name} </strong>
+                </div>
+              )
+              :
+              <p>  </p> }
+          </div>
+        </div>
       </div>
     );
   }
 }
 export default OwnProfile;
 
-// { user && user.followers.map((follower, i) =>
-//   <div key={i}>
-//     <li> @{follower.username} <span><img className="icon" src={follower.profilePicture} /></span></li>
-//   </div>
-// )}
 
-// <div>
-//   { (user && user.peopleYouFollow)
-//     &&
-//     <strong className="strong"> Following ({user.poepleYouFollow.length}) </strong>}
-// </div>
+// getUser(){
+//   // if(tokenUserId() === this.props.match.params.id){
+//   //   axios.get(`/api/users/${decodeToken().sub}`)
+//   //     .then(result => {
+//   //       this.setState({ user: result.data }, () => console.log('this is USER', this.state.user));
+//   //     });
+//   // } else {
+//   axios.get(`/api/users/${this.props.match.params.id}`)
+//     .then(result => {
+//       this.setState({ user: result.data });
+//     });
+//   // }
+// }
