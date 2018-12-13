@@ -85,7 +85,6 @@ class ItemShow extends React.Component{
                 &&
                 <button className="button" onClick={this.handleClick}>Add to basket</button>}
             </div>
-
             <div className="column is-4">
               { (isAuthenticated() && tokenUserId() !== item.addedBy._id)
                 &&
@@ -94,7 +93,7 @@ class ItemShow extends React.Component{
           </div>
           :
           <p> Please wait, page loading... </p>
-        }
+        }    
         <div className="column is-4">
           { (item && isAuthenticated() && tokenUserId() === item.addedBy._id)
             &&
