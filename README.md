@@ -173,3 +173,12 @@ ___
 
 
 ## Future Features
+
+There are lots of features I would like to add to Off The Rail, including:
+
+* Fixing minor bugs I am aware of.
+* Make mobile responsive.
+* Change it so that instead of just buying items, you can rent them for events or certain periods of time. I would then like to make it so that the cost-per-wear is calculated and automatically updated.
+* Have a structure that keeps track of when an item listed by a particular user has been sold, and remove it/mark as sold after purchase.
+* Ordering individual messages in order of most recent at the bottom of the window (like most instant messaging platforms).
+* Push notifications when you receive a message.
