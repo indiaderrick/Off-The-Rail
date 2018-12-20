@@ -1,4 +1,3 @@
-![Logo of the project](#)
 
 # Off The Rail
 > For those shopaholics out there ✧
@@ -99,7 +98,7 @@ Styling was also a blocker for me as I left it all to the end. Although I think 
 
 ### Featured Piece of Code 2
 
-This snippet is how I created a NewMessage conversation with a user. The content is taken from the input ('newMessage'), sent TO the userId in the URL and FROM the currently logged in user.
+As mentioned above, this snippet is how I created a new message conversation with a user. The content is taken from the input ('newMessage'), sent TO the userId in the URL and FROM the currently logged in user.
 
 ```javascript
 createNewMessage(){
@@ -111,7 +110,7 @@ createNewMessage(){
     .then(() => this.props.history.push('/messages'));
 }
 ```
-From [./src/components/messages/NewMessage.js](https://github.com/indiaderrick/wdi-project-four/blob/master/src/components/messages/NewMessage.js). 
+From [./src/components/messages/NewMessage.js](https://github.com/indiaderrick/wdi-project-four/blob/master/src/components/messages/NewMessage.js).
 
 ## Final Product
 
