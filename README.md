@@ -68,7 +68,7 @@ I started with the back end, aiming to have this as strong and stable as possibl
 ### Featured Piece of Code 1
 The backend architecture that related to my MVP was relatively simple and similar to what I had used in previous projects. Hence, I am choosing to show a section from my messaging component - an example of where I got the backend to do the work. In the controller function below, all messages that include the id of the currently logged in user's id (req.tokenUserId) are filtered for and sent to the front end. Rather than sending all of the messages to the front end and filtering there, this method only gathers messages that involve the current user.
 
-From [./controllers/messageController.js](https://github.com/platypotomus/wdi-project4-orbital/blob/master/models/user.js). CHANGE LINK
+From [./controllers/messageController.js](https://github.com/indiaderrick/wdi-project-four/blob/master/controllers/messageController.js).
 
 ```javascript
 function indexRoute(req, res, next){
@@ -111,7 +111,7 @@ createNewMessage(){
     .then(() => this.props.history.push('/messages'));
 }
 ```
-From [./src/components/messages/NewMessage.js](https://github.com/platypotomus/wdi-project4-orbital/blob/master/models/user.js). CHANGE LINK
+From [./src/components/messages/NewMessage.js](https://github.com/indiaderrick/wdi-project-four/blob/master/src/components/messages/NewMessage.js). 
 
 ## Final Product
 
