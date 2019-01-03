@@ -40,24 +40,18 @@ Several wireframes were put together on a site called MockFlow.
 #### Home
 
 <p align="center">
-  <img height=380 alt="home" src="./wireframes/home.png">
+  <img height=380 alt="home" src="./wireframes/homePage.png">
 </p>
 
 #### Index
 <p align="center">
-  <img height=380 alt="itemIndex" src="./wireframes/itemIndex.png">
-</p>
-
-
-#### Item Show
-<p align="center">
-  <img height=380 alt="itemShow" src="./wireframes/itemShow.png">
+  <img height=380 alt="itemIndex" src="./wireframes/itemsIndex.png">
 </p>
 
 
 #### Profile Page
 <p align="center">
-  <img height=380 alt="userProfile" src="./wireframes/userProfile.png">
+  <img height=380 alt="userProfile" src="./wireframes/usersProfile.png">
 </p>
 
 ## Back End
