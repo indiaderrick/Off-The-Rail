@@ -11,12 +11,12 @@ mongoose.connect(dbURI);
 
 app.use(morgan('dev'));
 app.use(express.static(`${__dirname}/public`));
-//
-// app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
+
 
 app.listen(port, () => console.log(`Express is listening on port ${port}`));
 
 app.use(bodyParser.json());
 app.use('/api', router);
+app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
 
 module.exports = app;
