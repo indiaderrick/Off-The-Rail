@@ -177,7 +177,7 @@ ___
 | Thursday ( **1 day**)| Server side work. Got backend working in Insomnia |
 | Friday, Saturday, Sunday, Monday (**4 days**) | Client side work with React. Style / Scss. |
 | Tuesday (**1 day**) | Bug fixing, Testing, Git, Deployment |
-|Wednesday (** half day **)| Presentation |
+|Wednesday (**half day**)| Presentation |
 
 ## Future Features
 
