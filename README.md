@@ -1,10 +1,12 @@
 
 # Off The Rail
-> For those shopaholics out there ✧
+> Project 4 out of 4 during my Web Development Immersive course at General Assembly.
 
 View Off The Rail on [Heroku](https://offtherail.herokuapp.com/)
 
 View Off The Rail on [GitHub Repo](https://github.com/indiaderrick/wdi-project-four)
+
+## Concept
 
 'Off the rail' is a one-page MERN stack e-commerce/social media platform. Similar to the app 'Depop', users are able to buy and sell items, follow other users, and 'save for later' the items that they like (among other things). More specifically, it is for buying and selling designer items at reduced prices and so has a large focus on how much you are saving. I used a maps API to integrate the sellers locations, and built an instant messaging component so that users can discuss sales and purchases.
 ___
@@ -19,18 +21,21 @@ ___
 * Be deployed online so it's publicly accessible.
 * Have automated tests for at least one RESTful resource on the back-end. Improve your employability by demonstrating a good understanding of testing principals.
 
-## Technologies Used
 
-* HTML
-* SCSS, CSS
-* Bulma
-* JavaScript (ECMAScript 6)
-* Node.js
-* React.js
-* Express
-* MongoDB
-* GitHub
-* Git
+## Technologies Used
+| Category | List |
+| ---- | --- |
+| Languages                            | Javascript (ECMAScript6), CSS3, Sass, HTML5 |
+| Front-end Web Application Framework  | React.js |
+| Server Environment                   | Node.js, Express.js, MongoDB |
+| CSS Framework                        | Bulma |
+| Third-party APIs                     | OpenStreetMap with Leaflet |
+| Project Collaboration Tool           | Trello, Slack |
+| REST client                          | Insomnia |
+| Typefaces                            | Google Fonts |
+| Text Editor                          | Atom |
+| Browser                              | Chrome |
+| Version control | Git and GitHub
 
 ## Approach Taken
 
@@ -175,3 +180,10 @@ There are lots of features I would like to add to Off The Rail, including:
 * Have a structure that keeps track of when an item listed by a particular user has been sold, and remove it/mark as sold after purchase.
 * Ordering individual messages in order of most recent at the bottom of the window (like most instant messaging platforms).
 * Push notifications when you receive a message.
+
+## Contact
+#### India Derrick
+Email : indiaderrick@gmail.com
+
+
+ [Portfolio](www.indiaderrick.com)| [LinkedIn](https://www.linkedin.com/in/indiaderrick/) | [GitHub](https://github.com/indiaderrick)
