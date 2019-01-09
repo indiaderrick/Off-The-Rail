@@ -30,7 +30,6 @@ ___
 | Server Environment                   | Node.js, Express.js, MongoDB |
 | CSS Framework                        | Bulma |
 | Third-party APIs                     | OpenStreetMap with Leaflet |
-| Project Collaboration Tool           | Trello, Slack |
 | REST client                          | Insomnia |
 | Typefaces                            | Google Fonts |
 | Text Editor                          | Atom |
