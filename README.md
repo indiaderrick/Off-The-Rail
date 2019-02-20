@@ -6,9 +6,11 @@ View Off The Rail on [Heroku](https://offtherail.herokuapp.com/)
 
 View Off The Rail on [GitHub Repo](https://github.com/indiaderrick/wdi-project-four)
 
+Please note: all form fields are required on registration to create an account.
+
 ## Concept
 
-'Off the rail' is a one-page MERN stack e-commerce/social media platform. Similar to the app 'Depop', users are able to buy and sell items, follow other users, and 'save for later' the items that they like (among other things). More specifically, it is for buying and selling designer items at reduced prices and so has a large focus on how much you are saving. I used a maps API to integrate the sellers locations, and built an instant messaging component so that users can discuss sales and purchases.
+'Off the rail' is a one-page MERN stack e-commerce/social media platform. Similar to the app 'Depop', users are able to buy and sell items, follow other users, and 'save for later' the items that they like (among other things). More specifically, it is for buying and selling designer items at reduced prices and so has a large focus on how much you are saving. I used a maps API to integrate the sellers locations and built an instant messaging component so that users can discuss sales and purchases.
 ___
 ## The Brief
 
