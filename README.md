@@ -1,12 +1,11 @@
 
 # Off The Rail
-> Project 4 out of 4 during my Web Development Immersive course at General Assembly.
 
 View Off The Rail on [Heroku](https://offtherail.herokuapp.com/)
 
 View Off The Rail on [GitHub Repo](https://github.com/indiaderrick/wdi-project-four)
 
-Please note: all form fields are required on registration to create an account.
+Please note: This project was made to be viewed on a laptop. Due to time restrictions, it is not yet mobile responsive. All form fields are required on registration to create an account.
 
 ## Concept
 
